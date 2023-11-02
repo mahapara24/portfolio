@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Link } from "react-scroll";
 
 const Header = () => {
   const [nav, setNav] = useState(false);
+
   return (
     <header className="fixed top-0 w-full bg-dark-gray">
       <div className="overflow-hidden flex justify-between items-center py-2 px-4 h-20 bg-dark-gray">
@@ -22,12 +22,11 @@ const Header = () => {
                 `block pl-3 duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
                 } border-custom-red lg:hover:bg-transparent`
-              }
-            >
-              Home
-            </NavLink>
+            }
+          >
+            Home
+          </NavLink>
           </li>
-
           <li>
             <NavLink
               to="/about"
@@ -40,53 +39,49 @@ const Header = () => {
               About
             </NavLink>
           </li>
-
           <li>
             <NavLink
               to="/skills"
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover-bg-transparent`
+                } border-custom-red lg:hover:bg-transparent`
               }
             >
               Skills
             </NavLink>
           </li>
-
           <li>
             <NavLink
               to="/projects"
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover-bg-transparent`
+                } border-custom-red lg:hover:bg-transparent`
               }
             >
               Projects
             </NavLink>
           </li>
-
           <li>
             <NavLink
               to="/contact"
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover-bg-transparent`
+                } border-custom-red lg:hover:bg-transparent`
               }
             >
               Contact
             </NavLink>
           </li>
-
           <li>
             <NavLink
               to="/github"
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover-bg-transparent`
+                } border-custom-red lg:hover:bg-transparent`
               }
             >
               Github
@@ -97,14 +92,14 @@ const Header = () => {
 
       <div
         onClick={() => setNav(!nav)}
-        className="pr-4 p-6 cursor-pointer sm:hidden text-custom-red"
+        className="pr-4  p-6 cursor-pointer sm:hidden text-custom-red"
         style={{ zIndex: 1000, position: "absolute", top: "0", right: "0" }}
       >
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
       </div>
 
       {nav && (
-        <ul className="sm:hidden pt-2 text-center flex flex-col bg-fixed h-screen bg-dark-gray">
+        <ul className="sm:hidden text-center flex flex-col bg-fixed h-screen bg-dark-gray">
           <li className="flex justify-center items-center text-center cursor-pointer capitalize text-3xl">
             <NavLink
               to="/home"
@@ -112,7 +107,7 @@ const Header = () => {
               className={({ isActive }) =>
                 `block pl-3 duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
+                } border-custom-red hover:bg-transparent`
               }
             >
               Home
@@ -125,13 +120,12 @@ const Header = () => {
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
+                } border-custom-red hover:bg-transparent`
               }
             >
               About
             </NavLink>
           </li>
-
           <li className="cursor-pointer capitalize py-6 text-3xl">
             <NavLink
               to="/skills"
@@ -139,13 +133,12 @@ const Header = () => {
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
+                } border-custom-red hover:bg-transparent`
               }
             >
               Skills
             </NavLink>
           </li>
-
           <li className="px-4 cursor-pointer capitalize py-6 text-3xl">
             <NavLink
               to="/projects"
@@ -153,13 +146,12 @@ const Header = () => {
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
+                } border-custom-red hover:bg-transparent`
               }
             >
               Projects
             </NavLink>
           </li>
-
           <li className="px-4 cursor-pointer capitalize py-6 text-3xl">
             <NavLink
               to="/contact"
@@ -167,13 +159,12 @@ const Header = () => {
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
+                } border-custom-red hover-bg-transparent`
               }
             >
               Contact
             </NavLink>
           </li>
-
           <li className="px-4 cursor-pointer capitalize py-6 text-3xl">
             <NavLink
               to="/github"
@@ -181,7 +172,7 @@ const Header = () => {
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
+                } border-custom-red hover:bg-transparent`
               }
             >
               Github

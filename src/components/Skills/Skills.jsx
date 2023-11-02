@@ -139,7 +139,7 @@ const Skills = () => {
   ];
 
   return (
-    <div className="h-full max-h-screen py-20 overflow-y-auto bg-primary-gray  text-white  sm:pt-40 sm:h-screen">
+    <div className="h-full max-h-screen overflow-y-scroll py-20 sm:overflow-y-auto bg-primary-gray  text-white  sm:pt-40 sm:h-screen">
       <div className="max-w-screen-lg mx-auto p-4 py-8">
         <div>
           <h2 className="text-4xl font-semibold text-custom-red sm:text-4xl sm:font-bold">Skills</h2>

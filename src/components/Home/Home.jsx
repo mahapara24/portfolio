@@ -81,11 +81,11 @@ function Home() {
 
 
 
-<div className='text-5xl tracking-wide'>
+<div className='text-5xl font-semibold tracking-wide'>
   <h1 className='sm:hidden md:hidden pb-2' style={{ marginBottom: '20px' }}>
     Hello, I'm a {""}
     <div className='sm:hidden md:block pt-2'>
-      <p className='text-5xl font-bold text-custom-red inline'>{text}</p>
+      <h1 className='text-5xl font-bold text-custom-red inline'>{text}</h1>
 
     <span style={{ color: 'transparent',  }}>
       {" "}

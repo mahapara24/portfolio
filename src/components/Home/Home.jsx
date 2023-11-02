@@ -38,6 +38,7 @@
 
 import React from 'react';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
+import TypewriterComponent, { Typewriter } from 'typewriter-effect';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
@@ -46,7 +47,10 @@ function Home() {
     words: ['Developer', 'Designer'],
     loop: {},
     typeSpeed: 150,
+    deleteSpeed:40, 
+    
   });
+
 
   return (
 <div className='h-screen w-full bg-primary-gray sm:items-start pt-64 pl-4 sm:pl-40 sm:pt-72'>
@@ -59,7 +63,7 @@ function Home() {
         </span>
         <span style={{ color: '#FF4A57', marginTop: '60px' }}>
           {" "}
-          <Cursor className='bg-transparent pt-8' cursorStyle='<' />
+          <Cursor className='bg-primary-gray pt-8 -z-0' cursorStyle='<' />
         </span>
     </h1>
           {/* <div className='text-xl'>
@@ -75,6 +79,8 @@ function Home() {
 </h1>
 </div> */}
 
+
+
 <div className='text-3xl'>
   <h1 className='sm:hidden md:hidden' style={{ marginBottom: '20px' }}>
     Hello, I'm a {""}
@@ -83,7 +89,7 @@ function Home() {
 
     <span style={{ color: '#FF4A57',  }}>
       {" "}
-      <Cursor className='bg-primary-gray' cursorStyle='<' />
+      <Cursor className='bg-primary-gray aria-checked:bg-sky-700 '  Cursor='false'  cursorBlinking='false' cursorStyle='<' />
     </span>
     </div>
   </h1>

@@ -14,7 +14,7 @@ const Header = () => {
           </h1>{" "}
         </div>
 
-        <ul className="hidden sm:font-semibold tracking-wider md:flex  justify-center text-xl mr-4">
+        <ul className="hidden sm:font-semibold tracking-wide md:flex  justify-center text-xl mr-4">
           <li>
             <NavLink
               to="home"
@@ -99,8 +99,8 @@ const Header = () => {
       </div>
 
       {nav && (
-        <ul className="sm:hidden text-center flex flex-col bg-fixed h-screen bg-dark-gray">
-          <li className="flex justify-center  items-center text-center cursor-pointer capitalize text-3xl">
+        <ul className="sm:hidden text-center pt-10 z-10 flex flex-col bg-fixed h-screen bg-dark-gray">
+          <li className="flex justify-center py-6 font-semibold items-center text-center cursor-pointer z-50 capitalize text-2xl">
             <NavLink
               to="/home"
               onClick={() => setNav(!nav)}
@@ -113,11 +113,11 @@ const Header = () => {
               Home
             </NavLink>
           </li>
-          <li className="px-4 cursor-pointer capitalize py-6 text-3xl">
+          <li className="px-4 cursor-pointer capitalize py-6 font-semibold text-2xl">
             <NavLink
               to="/about"
               onClick={() => setNav(!nav)}
-              className={({ isActive }) =>
+              className={({ isActive }) => 
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
                 } border-custom-red`
@@ -126,7 +126,7 @@ const Header = () => {
               About
             </NavLink>
           </li>
-          <li className="cursor-pointer capitalize py-6 text-3xl">
+          <li className="cursor-pointer capitalize py-6 font-semibold text-2xl">
             <NavLink
               to="/skills"
               onClick={() => setNav(!nav)}
@@ -139,7 +139,7 @@ const Header = () => {
               Skills
             </NavLink>
           </li>
-          <li className="px-4 cursor-pointer capitalize py-6 text-3xl">
+          <li className="px-4 cursor-pointer capitalize py-6 font-semibold text-2xl">
             <NavLink
               to="/projects"
               onClick={() => setNav(!nav)}
@@ -152,7 +152,7 @@ const Header = () => {
               Projects
             </NavLink>
           </li>
-          <li className="px-4 cursor-pointer capitalize py-6 text-3xl">
+          <li className="px-4 cursor-pointer capitalize py-6 font-semibold text-2xl">
             <NavLink
               to="/contact"
               onClick={() => setNav(!nav)}
@@ -165,7 +165,7 @@ const Header = () => {
               Contact
             </NavLink>
           </li>
-          <li className="px-4 cursor-pointer capitalize py-6 text-3xl">
+          <li className="px-4 cursor-pointer capitalize py-6 font-semibold text-2xl">
             <NavLink
               to="/github"
               onClick={() => setNav(!nav)}

@@ -100,14 +100,14 @@ const Header = () => {
 
       {nav && (
         <ul className="sm:hidden text-center flex flex-col bg-fixed h-screen bg-dark-gray">
-          <li className="flex justify-center items-center text-center cursor-pointer capitalize text-3xl">
+          <li className="flex justify-center  items-center text-center cursor-pointer capitalize text-3xl">
             <NavLink
               to="/home"
               onClick={() => setNav(!nav)}
               className={({ isActive }) =>
                 `block pl-3 duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red hover:bg-transparent`
+                } border-custom-red `
               }
             >
               Home
@@ -120,7 +120,7 @@ const Header = () => {
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red hover:bg-transparent`
+                } border-custom-red`
               }
             >
               About
@@ -133,7 +133,7 @@ const Header = () => {
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red hover:bg-transparent`
+                } border-custom-red `
               }
             >
               Skills
@@ -146,7 +146,7 @@ const Header = () => {
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red hover:bg-transparent`
+                } border-custom-red `
               }
             >
               Projects
@@ -159,7 +159,7 @@ const Header = () => {
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red hover-bg-transparent`
+                } border-custom-red `
               }
             >
               Contact
@@ -172,7 +172,7 @@ const Header = () => {
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red hover:bg-transparent`
+                } border-custom-red `
               }
             >
               Github

@@ -81,15 +81,15 @@ function Home() {
 
 
 
-<div className='text-3xl'>
-  <h1 className='sm:hidden md:hidden' style={{ marginBottom: '20px' }}>
+<div className='text-4xl tracking-wide'>
+  <h1 className='sm:hidden md:hidden pb-2' style={{ marginBottom: '20px' }}>
     Hello, I'm a {""}
-    <div className='sm:hidden md:block'>
-      <p className='text-3xl text-custom-red inline'>{text}</p>
+    <div className='sm:hidden md:block pt-2'>
+      <p className='text-4xl font-bold text-custom-red inline'>{text}</p>
 
     <span style={{ color: '#FF4A57',  }}>
       {" "}
-      <Cursor className='bg-primary-gray aria-checked:bg-sky-700 '  Cursor='false'  cursorBlinking='false' cursorStyle='<' />
+      <Cursor className='bg-primary-gray '  Cursor='false'  cursorBlinking='false' cursorStyle='<' />
     </span>
     </div>
   </h1>

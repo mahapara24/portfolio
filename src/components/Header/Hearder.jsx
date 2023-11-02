@@ -14,7 +14,7 @@ const Header = () => {
           </h1>{" "}
         </div>
 
-        <ul className="hidden sm:font-semibold tracking-wider md:flex flex justify-center text-xl mr-4">
+        <ul className="hidden sm:font-semibold tracking-wider md:flex  justify-center text-xl mr-4">
           <li>
             <NavLink
               to="home"
@@ -93,14 +93,14 @@ const Header = () => {
       <div
         onClick={() => setNav(!nav)}
         className="pr-4  p-6 cursor-pointer sm:hidden text-custom-red"
-        style={{ zIndex: 1000, top: "0", right: "0" }}
+        style={{ zIndex: 1000, position: "absolute", top: "0", right: "0" }}
       >
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
       </div>
 
       {nav && (
-        <ul className="sm:hidden text-center pt-30 flex flex-col bg-fixed h-100 bg-dark-gray">
-          <li className="flex justify-center pt-20 items-center text-center cursor-pointer capitalize text-3xl">
+        <ul className="sm:hidden text-center flex flex-col bg-fixed h-screen bg-dark-gray">
+          <li className="flex justify-center  items-center text-center cursor-pointer capitalize text-3xl">
             <NavLink
               to="/home"
               onClick={() => setNav(!nav)}

@@ -103,7 +103,7 @@ const Hearder = () => {
       </div>
 
       {nav && (
-        <ul className="flex bg-fixed z-1 h-100 flex-col md:hidden justify-center items-center absolute top-0 left-0 w-full h-screen py-11 bg-dark-gray">
+        <ul className="flex bg-fixed z-1 h-100 flex-col sm:hidden justify-center items-center absolute top-0 left-0 w-full h-screen py-11 bg-dark-gray">
           <li className="px-4 cursor-pointer capitalize py-6 text-3xl">
             <NavLink 
               to="/home"

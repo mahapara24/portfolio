@@ -99,7 +99,7 @@ const Header = () => {
       </div>
 
       {nav && (
-        <ul className="sm:hidden text-center pt-10 z-10 flex flex-col bg-fixed h-screen bg-dark-gray">
+        <ul className="sm:hidden text-center pt-4 z-10 flex flex-col bg-fixed h-screen bg-dark-gray">
           <li className="flex justify-center py-6 font-semibold items-center text-center cursor-pointer z-50 capitalize text-2xl">
             <NavLink
               to="/home"

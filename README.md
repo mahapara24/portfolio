@@ -1,6 +1,6 @@
 # My Portfolio
 
-This is my personal portfolio website that showcases my projects and provides information about me. You can view the live website at [https://mahapara24.github.io/portfolio](https://mahapara24.github.io/portfolio).
+This is my personal portfolio website that showcases my projects and provides information about me. You can view the live website at [https://mahapara-portfolio-40db3a4fd-mahapara24.vercel.app/](https://mahapara-portfolio-40db3a4fd-mahapara24.vercel.app/).
 
 
 ## About

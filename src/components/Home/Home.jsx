@@ -98,7 +98,7 @@ function Home() {
 
 <div className='flex justify-between gap-8'>
   <button className='px-2 py-2 text-base mt-4 flex items-start font-normal sm:mt-8 sm:text-xl sm:font-semibold text-white bg-custom-red sm:px-6 sm:py-3 sm:my-3 sm:flex sm:items-center rounded-md border-2 border-custom-red'>
-    <Link to='/public/MAHAPARA NIZAMANI.pdf' target='_blank'>Download Resume</Link>
+    <Link to='./public/MAHAPARA NIZAMANI.pdf' target='_blank'>Download Resume</Link>
     <span className='ml-2'>
       <BsFillPersonLinesFill size={25} />
     </span>

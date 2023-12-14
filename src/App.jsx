@@ -7,7 +7,6 @@ import Skills from './components/Skills/Skills'
 import Projects from './components/Project/Projects'
 import Contact from './components/Contact/Contact'
 import User from './components/User/User'
-import Github from './components/Github/Github'
 
 
 function App() {
@@ -23,7 +22,6 @@ function App() {
       <Projects/>
       <Contact/>
       <User/>
-      <Github/>
     </h1>
     </>
   )

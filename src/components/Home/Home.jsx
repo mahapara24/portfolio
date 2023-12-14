@@ -44,7 +44,7 @@ import { Link } from 'react-router-dom';
 
 function Home() {
   const [text] = useTypewriter({
-    words: ['Developer', 'Designer'],
+    words: ['Developer', 'Website Designer', ],
     loop: {},
     typeSpeed: 150,
     deleteSpeed:40, 

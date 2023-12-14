@@ -15,7 +15,7 @@ import Layout from "./Layout.jsx";
 import Projects from "./components/Project/Projects.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import User from "./components/User/User.jsx";
-import Github, { githubinfoLoader } from "./components/Github/Github.jsx";
+// import Github, { githubinfoLoader } from "./assets/Githubb/Github.jsx;
 import Hearder from "./components/Header/Hearder.jsx";
 // const router = createBrowserRouter ([
 //   {
@@ -63,8 +63,10 @@ const router = createBrowserRouter(
       <Route path="projects" element={<Projects />} />
       <Route path="contact" element={<Contact />} />
       <Route path="userid" element={<User />} />
-
-      <Route loader={githubinfoLoader} path="/github" element={<Github />} />
+{/* 
+      <Route loader={githubinfoLoader} path="/github" element={<Github />} 
+        
+      /> */}
     </Route>
   )
 );

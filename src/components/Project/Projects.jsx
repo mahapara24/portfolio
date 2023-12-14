@@ -39,12 +39,12 @@ const Projects = () => {
       demoto:'https://mahapara24.github.io/portfolio-gallery-using-grid/',
       codeto:'https://github.com/mahapara24/portfolio-gallery-using-grid'
     },
-    {
-      id: 6,
-      src: project6,
-      demoto:'https://mahapara24.github.io/gsap-simple-animation/',
-      codeto:'https://github.com/mahapara24/gsap-simple-animation'
-    },
+    // {
+    //   id: 6,
+    //   src: project6,
+    //   demoto:'https://mahapara24.github.io/gsap-simple-animation/',
+    //   codeto:'https://github.com/mahapara24/gsap-simple-animation'
+    // },
   ];
 
   return (

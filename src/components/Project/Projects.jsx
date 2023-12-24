@@ -24,8 +24,8 @@ const Projects = () => {
     {
       id: 3,
       src: project3,
-      demoto:'https://mahapara24.github.io/Coffee-website-bootsrap/',
-      codeto:'https://github.com/mahapara24/Coffee-website-bootsrap'
+      demoto:'https://password-generator-reactapp.vercel.app/',
+      codeto:'https://github.com/mahapara24/password-generator-reactapp'
     },
     {
       id: 4,

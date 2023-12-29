@@ -43,7 +43,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   const [text] = useTypewriter({
-    words: ["Developer", "Website Designer"],
+    words: [ "Mahapara", "Software Engineer" ,"Web Developer"],
     loop: {},
     typeSpeed: 150,
     deleteSpeed: 40,
@@ -65,11 +65,14 @@ function Home() {
               }}
             >
               <br className="sm:hidden" />
+              <br className="sm:hidden"/>
+
+              <br className="sm:hidden"/>
               {text}
             </span>
-            <span style={{ color: "#FF4A57", marginTop: "60px" }}>
+            <span style={{ color: "#FF4A57", marginTop: "10px" }}>
               {" "}
-              <Cursor className="bg-primary-gray pt-8 -z-0" cursorStyle="<" />
+              <Cursor className="bg-primary-gray pt-4 " cursorStyle="<" />
             </span>
           </h1>
           {/* <div className='text-xl'>
@@ -85,26 +88,27 @@ function Home() {
 </h1>
 </div> */}
 
-          <div className="text-5xl font-semibold tracking-wide">
+          <div className="text-4xl  font-bold tracking-wide">
             <h1
-              className="sm:hidden md:hidden pb-2"
-              style={{ marginBottom: "20px" }}
+              className="sm:hidden md:hidden "
+              style={{ marginBottom: "10px" }}
             >
               Hello, I'm a {""}
               <div className="sm:hidden md:block pt-2">
-                <h1 className="text-5xl font-bold text-custom-red inline">
-                  {text}
-                </h1>
+                <h1 className="text-5xl font-bold text-custom-red ">
+                 <span className="text-4xl  "> {text}
 
-                <span style={{ color: "transparent" }}>
+                <span style={{ color: "#FF4A57", marginTop: "10px" }}>
                   {" "}
                   <Cursor
                     className="bg-primary-gray "
-                    Cursor="false"
-                    cursorBlinking="false"
+                    
                     cursorStyle="<"
                   />
                 </span>
+                 <br /></span>
+                </h1>
+
               </div>
             </h1>
           </div>

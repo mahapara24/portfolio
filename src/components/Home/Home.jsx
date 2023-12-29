@@ -112,6 +112,8 @@ function Home() {
               </div>
             </h1>
           </div>
+          <br className="sm:hidden" />
+              <br className="sm:hidden mt-2"/>
 
           <div className="flex justify-between gap-8">
             <button className="px-2 py-2 text-base mt-4 flex items-start font-normal sm:mt-8 sm:text-xl sm:font-semibold text-white bg-custom-red sm:px-6 sm:py-3 sm:my-3 sm:flex sm:items-center rounded-md border-2 border-custom-red">

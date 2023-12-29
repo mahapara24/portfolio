@@ -43,7 +43,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   const [text] = useTypewriter({
-    words: [ "Mahapara", "Software Engineer" ,"Web Developer"],
+    words: [ "Mahapara","Web Developer", "Software Engineer "],
     loop: {},
     typeSpeed: 150,
     deleteSpeed: 40,
@@ -88,23 +88,24 @@ function Home() {
 </h1>
 </div> */}
 
-          <div className="text-4xl  font-bold tracking-wide">
+          <div className="text-3xl  font-extrabold tracking-wide">
             <h1
               className="sm:hidden md:hidden "
               style={{ marginBottom: "10px" }}
             >
               Hello, I'm a {""}
               <div className="sm:hidden md:block pt-2">
-                <h1 className="text-5xl font-bold text-custom-red ">
-                 <span className="text-4xl  "> {text}
+                <h1 className="text-3xl font-extrabold text-custom-red ">
+                 <span className="text-3xl  "> {text}
 
                 <span style={{ color: "#FF4A57", marginTop: "10px" }}>
                   {" "}
                   <Cursor
-                    className="bg-primary-gray "
+                    className="bg-primary-gray mr-5 "
                     
                     cursorStyle="<"
                   />
+                  
                 </span>
                  <br /></span>
                 </h1>
@@ -112,11 +113,9 @@ function Home() {
               </div>
             </h1>
           </div>
-          <br className="sm:hidden" />
-              <br className="sm:hidden mt-2"/>
 
-          <div className="flex justify-between gap-8">
-            <button className="px-2 py-2 text-base mt-4 flex items-start font-normal sm:mt-8 sm:text-xl sm:font-semibold text-white bg-custom-red sm:px-6 sm:py-3 sm:my-3 sm:flex sm:items-center rounded-md border-2 border-custom-red">
+          <div className="flex items-end justify-between align-baseline fixed gap-8">
+            <button className="px-2 py-2 text-base mt-4 flex items-start font-bold sm:mt-8 sm:text-xl sm:font-semibold text-white bg-custom-red sm:px-6 sm:py-3 sm:my-3 sm:flex sm:items-center rounded-md border-2 border-custom-red">
               <a
                 href="./MAHAPARA-SOFTWARE-DEVELOPER .pdf"
                 target="_blank"

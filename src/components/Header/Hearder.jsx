@@ -30,7 +30,7 @@ const Header = () => {
                 to="home"
                 className={({ isActive }) =>
                   `block pl-3 duration-200 ${
-                    isActive ? "text-white" : "text-custom-red"
+                    isActive ? "text-white" : "text-custom-red "
                   } border-custom-red lg:hover:bg-transparent`
                 }
               >

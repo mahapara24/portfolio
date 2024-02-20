@@ -153,7 +153,7 @@ const Header = () => {
       <div
         onClick={() => setNav(!nav)}
         className="pr-4  p-8 cursor-pointer sm:hidden text-custom-red"
-        style={{ zIndex: 1000, position: "absolute", top: "0", right: "2" }}
+        style={{ zIndex: 1000, position: "absolute", top: "0", right: "0" }}
       >
         {nav ? (
           <FaTimes className="" size={20} />

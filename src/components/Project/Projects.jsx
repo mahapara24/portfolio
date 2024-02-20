@@ -59,7 +59,7 @@ const Projects = () => {
       <div className=" max-w-screen-lg p- mx-auto flex flex-col justify-center w-full h-full">
         {/* i have used max-w-screen-md instead of lg */}
         <div className="pb-4 pt-50  sm:pt-0 px-4">
-          <h2 className="text-3xl font-bold text-center sm:text-left  text-custom-red  sm:text-3xl ">
+          <h2 className="text-3xl pt-12 sm:pt-2 font-bold text-center sm:text-left  text-custom-red  sm:text-3xl ">
             Projects
           </h2>
           <p className="py-2 pb-14 sm:pb-4 text-xl text-center sm:text-left font-normal  sm:text-2xl text-white ">

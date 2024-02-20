@@ -13,14 +13,14 @@ const About = () => {
           </h2>
         </div>
         <p className="text-xl font-normal  sm:text-2xl sm:font-base sm:tracking-widest text-white">
-          I'm Mahapara, I possess a strong foundation in JavaScript, HTML,
-          React, Node.js, and the Tailwind CSS framework. My expertise lies in
-          building web applications that are both functional and visually
-          appealing with proper functionality. I have successfully contributed
-          to various projects, demonstrating my proficiency in creating
-          responsive and dynamic web solutions. My commitment to learning and
-          staying up-to-date with industry trends allows me to adapt and deliver
-          high-quality, user-friendly applications.
+          I'm Mahapara, I possess a strong foundation in JavaScript, ReactJS,
+          Node.js, ExpressJs, MongoDB and the Tailwind CSS framework. My
+          expertise lies in building web applications that are both functional
+          and visually appealing with proper functionality. I have successfully
+          contributed to various projects, demonstrating my proficiency in
+          creating responsive and dynamic web solutions. My commitment to
+          learning and staying up-to-date with industry trends allows me to
+          adapt and deliver high-quality, user-friendly applications.
         </p>
       </div>
     </div>

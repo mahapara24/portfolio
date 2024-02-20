@@ -97,7 +97,7 @@ const Skills = () => {
       id="skills"
       className="h-full max-h-screen  py-10 pb-50 scrollbar-hide scroll-smooth bg-primary-gray  text-white  sm:pt-20 sm:h-screen"
     >
-      <div className="max-w-screen-lg mx-auto p-1 py-8">
+      <div className="max-w-screen-lg mx-auto  py-8">
         <div>
           <h2 className="text-3xl font-bold text-center sm:text-left sm:text-4xl sm:font-bold text-custom-red ">
             Skills
@@ -113,11 +113,7 @@ const Skills = () => {
               key={id}
               className={`bg-dark-gray items-center justify-center rounded-lg shadow-md hover:scale-105 duration-500 py-2`}
             >
-              <img
-                className="sm:h-16 sm:w-30 h-14 w-30 mx-auto"
-                src={src}
-                alt=""
-              />
+              <img className="sm:h-16 sm:p-1 h-12  mx-auto" src={src} alt="" />
               <p className="text-xl mt-4 text-center">{title}</p>
             </div>
           ))}

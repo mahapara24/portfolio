@@ -1,8 +1,6 @@
 import React from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
-import TypewriterComponent, { Typewriter } from "typewriter-effect";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
 
 function Home() {
   const [text] = useTypewriter({
@@ -74,7 +72,7 @@ function Home() {
                 Download Resume
               </a>
 
-              <span className="ml-2 ">
+              <span className="ml-2">
                 <BsFillPersonLinesFill size={25} />
               </span>
             </button>

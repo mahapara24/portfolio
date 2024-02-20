@@ -54,7 +54,7 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className="bg-primary-gray overflow-scroll overflow-y-auto h-full scrollbar-hide scroll-smooth w-full md:h-screen pt-10 sm:pt-10"
+      className="bg-primary-gray  h-full scrollbar-hide scroll-smooth w-full md:h-screen pt-10 sm:pt-10"
     >
       <div className=" max-w-screen-lg p- mx-auto flex flex-col justify-center w-full h-full">
         {/* i have used max-w-screen-md instead of lg */}

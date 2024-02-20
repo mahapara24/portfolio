@@ -41,12 +41,12 @@ function Home() {
 
           <div className="text-4xl font-semibold tracking-wide">
             <h1
-              className="sm:hidden md:hidden text-[44px] pb-2"
+              className="sm:hidden md:hidden text-[36px] pb-2"
               style={{ marginBottom: "20px" }}
             >
               Hello, I'm a {""}
               <div className="sm:hidden md:block pb-2 pt-2">
-                <h1 className="text-[45px] py-2 mb-8 leading-snug leading-2  font-bold text-custom-red block w-8 h-10">
+                <h1 className="text-[36px] py-2 mb-8 leading-snug leading-2  font-bold text-custom-red block w-8 h-10">
                   {text}
                 </h1>
 

@@ -1,22 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        custom: ['Open Sans', 'sans-serif']
+        custom: ["Open Sans", "sans-serif"],
+        plugins: [
+          require("tailwind-scrollbar-hide"),
+          // ...
+        ],
       },
+
       colors: {
-        'primary-gray': '#23263A',
-        'dark-gray': '#212336',
-        'secondary-gray': '#2B2D41',
-        'custom-red': '#FF4A57',
+        "primary-gray": "#000000",
+        "dark-gray": "#111111",
+        "secondary-gray": "#3E3E4B",
+        "custom-red": "#40D1FF",
       },
     },
-    
   },
   plugins: [],
-}
+};

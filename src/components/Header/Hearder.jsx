@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { Link as Scroll } from "react-scroll";
 
 const Header = () => {
   const [nav, setNav] = useState(false);
 
   return (
-    <header className="flex flex-col fixed top-0 w-full bg-dark-gray">
+    <header className="flex flex-col fixed top-0 w-full bg-dark-gray/10">
       <div className="overflow-hidden flex justify-between items-center py-2 px-4 h-20 bg-dark-gray">
         <div>
           <h1 className="tracking-wider ml-2 text-2xl sm:text-3xl text-custom-red font-semibold">
@@ -16,64 +17,123 @@ const Header = () => {
 
         <ul className="hidden sm:font-semibold tracking-wide md:flex  justify-center text-xl mr-4">
           <li>
-            <NavLink
+            <Scroll
+              activeClass="active"
               to="home"
-              className={({ isActive }) =>
-                `block pl-3 duration-200 ${
-                  isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
-            }
-          >
-            Home
-          </NavLink>
+              spy={true}
+              smooth={true}
+              offset={-70} // Adjust offset as needed
+              duration={500}
+              className="block pl-3 duration-200 text-custom-red border-custom-red lg:hover:bg-transparent"
+            >
+              <NavLink
+                to="home"
+                className={({ isActive }) =>
+                  `block pl-3 duration-200 ${
+                    isActive ? "text-white" : "text-custom-red"
+                  } border-custom-red lg:hover:bg-transparent`
+                }
+              >
+                Home
+              </NavLink>
+            </Scroll>
+          </li>
+
+          <li>
+            <Scroll
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-70} // Adjust offset as needed
+              duration={500}
+              className="block pl-3 duration-200 text-custom-red border-custom-red lg:hover:bg-transparent"
+            >
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  `block pl-3 cursor-pointer duration-200 ${
+                    isActive ? "text-white" : "text-custom-red"
+                  } border-custom-red lg:hover:bg-transparent`
+                }
+              >
+                About
+              </NavLink>
+            </Scroll>
           </li>
           <li>
-            <NavLink
-              to="/about"
+            <Scroll
+              activeClass="active"
+              to="skills"
+              spy={true}
+              smooth={true}
+              offset={-70} // Adjust offset as needed
+              duration={500}
+              className="block pl-3 duration-200 text-custom-red border-custom-red lg:hover:bg-transparent"
+            >
+              <NavLink
+                to="/skills"
+                className={({ isActive }) =>
+                  `block pl-3 cursor-pointer duration-200 ${
+                    isActive ? "text-white" : "text-custom-red"
+                  } border-custom-red lg:hover:bg-transparent`
+                }
+              >
+                Skills
+              </NavLink>
+            </Scroll>
+          </li>
+          <li>
+            <Scroll
+              activeClass="active"
+              to="projects"
+              spy={true}
+              smooth={true}
+              offset={-70} // Adjust offset as needed
+              duration={500}
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
                 } border-custom-red lg:hover:bg-transparent`
               }
             >
-              About
-            </NavLink>
+              <NavLink
+                to="/projects"
+                className={({ isActive }) =>
+                  `block pl-3 cursor-pointer duration-200 ${
+                    isActive ? "text-white" : "text-custom-red"
+                  } border-custom-red lg:hover:bg-transparent`
+                }
+              >
+                Projects
+              </NavLink>
+            </Scroll>
           </li>
           <li>
-            <NavLink
-              to="/skills"
+            <Scroll
+              activeClass="active"
+              to="contact"
+              spy={true}
+              smooth={true}
+              offset={-70} // Adjust offset as needed
+              duration={500}
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
                 } border-custom-red lg:hover:bg-transparent`
               }
             >
-              Skills
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/projects"
-              className={({ isActive }) =>
-                `block pl-3 cursor-pointer duration-200 ${
-                  isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
-              }
-            >
-              Projects
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `block pl-3 cursor-pointer duration-200 ${
-                  isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
-              }
-            >
-              Contact
-            </NavLink>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  `block pl-3 cursor-pointer duration-200 ${
+                    isActive ? "text-white" : "text-custom-red"
+                  } border-custom-red lg:hover:bg-transparent`
+                }
+              >
+                Contact
+              </NavLink>
+            </Scroll>
           </li>
           {/* <li>
             <NavLink
@@ -95,75 +155,141 @@ const Header = () => {
         className="pr-4  p-6 cursor-pointer sm:hidden text-custom-red"
         style={{ zIndex: 1000, position: "absolute", top: "0", right: "0" }}
       >
-        {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
+        {nav ? <FaTimes size={26} /> : <FaBars size={26} />}
       </div>
 
       {nav && (
-        <ul className="sm:hidden text-center pt-6 z-10 flex flex-col bg-fixed h-screen bg-dark-gray">
+        <ul className="sm:hidden text-center pt-6 z-10 flex flex-col bg-fixed h-screen scroll-smooth bg-dark-gray">
           <li className="flex justify-center py-6 font-semibold items-center text-center cursor-pointer z-50 capitalize text-2xl">
-            <NavLink
-              to="/home"
-              onClick={() => setNav(!nav)}
+            <Scroll
+              activeClass="active"
+              to="home"
+              spy={true}
+              smooth={true}
+              offset={-70} // Adjust offset as needed
+              duration={500}
               className={({ isActive }) =>
-                `block pl-3 duration-200 ${
-                  isActive ? "text-white" : "text-custom-red"
-                } border-custom-red `
-              }
-            >
-              Home
-            </NavLink>
-          </li>
-          <li className="px-4 cursor-pointer capitalize py-6 font-semibold text-2xl">
-            <NavLink
-              to="/about"
-              onClick={() => setNav(!nav)}
-              className={({ isActive }) => 
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red`
+                } border-custom-red lg:hover:bg-transparent`
               }
             >
-              About
-            </NavLink>
+              <NavLink
+                to="/home"
+                onClick={() => setNav(!nav)}
+                className={({ isActive }) =>
+                  `block pl-3 duration-200 ${
+                    isActive ? "text-white" : "text-custom-red"
+                  } border-custom-red `
+                }
+              >
+                Home
+              </NavLink>
+            </Scroll>
+          </li>
+          <li className="px-4 cursor-pointer capitalize py-6 font-semibold text-2xl">
+            <Scroll
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-70} // Adjust offset as needed
+              duration={500}
+              className={({ isActive }) =>
+                `block pl-3 cursor-pointer duration-200 ${
+                  isActive ? "text-white" : "text-custom-red"
+                } border-custom-red lg:hover:bg-transparent`
+              }
+            >
+              <NavLink
+                to="/about"
+                onClick={() => setNav(!nav)}
+                className={({ isActive }) =>
+                  `block pl-3 cursor-pointer duration-200 ${
+                    isActive ? "text-white" : "text-custom-red"
+                  } border-custom-red`
+                }
+              >
+                About
+              </NavLink>
+            </Scroll>
           </li>
           <li className="cursor-pointer capitalize py-6 font-semibold text-2xl">
-            <NavLink
-              to="/skills"
-              onClick={() => setNav(!nav)}
+            <Scroll
+              activeClass="active"
+              to="skills"
+              spy={true}
+              smooth={true}
+              offset={-70} // Adjust offset as needed
+              duration={500}
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red `
+                } border-custom-red lg:hover:bg-transparent`
               }
             >
-              Skills
-            </NavLink>
+              <NavLink
+                to="/skills"
+                onClick={() => setNav(!nav)}
+                className={({ isActive }) =>
+                  `block pl-3 cursor-pointer duration-200 ${
+                    isActive ? "text-white" : "text-custom-red"
+                  } border-custom-red `
+                }
+              >
+                Skills
+              </NavLink>
+            </Scroll>
           </li>
           <li className="px-4 cursor-pointer capitalize py-6 font-semibold text-2xl">
-            <NavLink
-              to="/projects"
-              onClick={() => setNav(!nav)}
-              className={({ isActive }) =>
-                `block pl-3 cursor-pointer duration-200 ${
-                  isActive ? "text-white" : "text-custom-red"
-                } border-custom-red `
-              }
+            <Scroll
+              activeClass="active"
+              to="projects"
+              spy={true}
+              smooth={true}
+              offset={-70} // Adjust offset as needed
+              duration={500}
+              className="block pl-3 duration-200 text-custom-red border-custom-red lg:hover:bg-transparent"
             >
-              Projects
-            </NavLink>
+              <NavLink
+                to="/projects"
+                onClick={() => setNav(!nav)}
+                className={({ isActive }) =>
+                  `block pl-3 cursor-pointer duration-200 ${
+                    isActive ? "text-white" : "text-custom-red"
+                  } border-custom-red `
+                }
+              >
+                Projects
+              </NavLink>
+            </Scroll>
           </li>
           <li className="px-4 cursor-pointer capitalize py-6 font-semibold text-2xl">
-            <NavLink
-              to="/contact"
-              onClick={() => setNav(!nav)}
+            <Scroll
+              activeClass="active"
+              to="contact"
+              spy={true}
+              smooth={true}
+              offset={-70} // Adjust offset as needed
+              duration={500}
               className={({ isActive }) =>
                 `block pl-3 cursor-pointer duration-200 ${
                   isActive ? "text-white" : "text-custom-red"
-                } border-custom-red `
+                } border-custom-red lg:hover:bg-transparent`
               }
             >
-              Contact
-            </NavLink>
+              <NavLink
+                to="/contact"
+                onClick={() => setNav(!nav)}
+                className={({ isActive }) =>
+                  `block pl-3 cursor-pointer duration-200 ${
+                    isActive ? "text-white" : "text-custom-red"
+                  } border-custom-red `
+                }
+              >
+                Contact
+              </NavLink>
+            </Scroll>
           </li>
           {/* <li className="px-4 cursor-pointer capitalize py-6 font-semibold text-2xl">
             <NavLink

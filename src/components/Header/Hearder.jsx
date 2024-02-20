@@ -10,7 +10,7 @@ const Header = () => {
     <header className="flex flex-col fixed top-0 w-full bg-dark-gray/10">
       <div className="overflow-hidden flex justify-between items-center py-2 px-4 h-20 bg-dark-gray">
         <div>
-          <h1 className="tracking-wider ml-2 text-2xl sm:text-3xl text-custom-red font-semibold">
+          <h1 className="tracking-wider ml-2 text-2xl sm:text-3xl text-custom-red sm:font-semibold">
             Mahapara Nizamani
           </h1>{" "}
         </div>
@@ -152,10 +152,14 @@ const Header = () => {
 
       <div
         onClick={() => setNav(!nav)}
-        className="pr-4  p-6 cursor-pointer sm:hidden text-custom-red"
-        style={{ zIndex: 1000, position: "absolute", top: "0", right: "0" }}
+        className="pr-4  p-8 cursor-pointer sm:hidden text-custom-red"
+        style={{ zIndex: 1000, position: "absolute", top: "0", right: "2" }}
       >
-        {nav ? <FaTimes size={26} /> : <FaBars size={26} />}
+        {nav ? (
+          <FaTimes className="" size={20} />
+        ) : (
+          <FaBars className="" size={20} />
+        )}
       </div>
 
       {nav && (

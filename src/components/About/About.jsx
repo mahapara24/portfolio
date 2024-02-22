@@ -8,11 +8,11 @@ const About = () => {
     >
       <div className="max-w-screen-lg mx-auto flex flex-col justify-center py-5 px-5 text-center sm:text-left">
         <div>
-          <h2 className="text-3xl sm:text-4xl text-custom-red font-bold pb-5">
+          <h2 className="text-3xl sm:text-4xl text-custom-red font-bold ">
             About
           </h2>
         </div>
-        <p className="text-xl font-normal  sm:text-2xl sm:font-base sm:tracking-widest text-white">
+        <p className="text-[19px] font-normal py-2 sm:text-2xl sm:font-base sm:tracking-widest text-white">
           I'm Mahapara, I possess a strong foundation in JavaScript, ReactJS,
           Node.js, ExpressJs, MongoDB and the Tailwind CSS framework. My
           expertise lies in building web applications that are both functional

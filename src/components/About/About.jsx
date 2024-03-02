@@ -12,7 +12,7 @@ const About = () => {
             About
           </h2>
         </div>
-        <p className="text-[19px]  rounded-lg  mt-4 font-normal py-2 sm:text-[20px] sm:font-base sm:tracking-widest text-white">
+        <p className="text-[17px]  rounded-lg  mt-4 font-normal py-2 sm:text-[20px] sm:font-base sm:tracking-widest text-white">
           I'm Mahapara, I possess a strong foundation in JavaScript, ReactJS,
           Node.js, ExpressJs, MongoDB and the Tailwind CSS framework. My
           expertise lies in building web applications that are both functional

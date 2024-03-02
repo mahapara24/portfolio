@@ -54,7 +54,7 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className="bg-primary-gray  h- pt-20 scrollbar-hide scroll-smooth w-full md:h-screen  sm:pt-10"
+      className="bg-primary-gray  h- pt-20 scrollbar-hide scroll-smooth w-full md:h-screen   sm:pt-10"
     >
       <div className=" max-w-screen-lg p- mx-auto flex flex-col justify-center w-full h-full">
         {/* i have used max-w-screen-md instead of lg */}
@@ -67,7 +67,7 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-3 md:grid-cols-3 gap-10 px-4 p-2 sm:px:0">
+        <div className="grid sm:grid-cols-3  md:grid-cols-3 m-4 rounded-lg bg-dark-gray/90 gap-10 px-8 p-2 sm:px:0">
           {portfolios.map((portfolio) => (
             <div
               key={portfolio.id}

@@ -37,7 +37,7 @@ function Home() {
             </span>
           </h1>
 
-          <div className="text-4xl font-semibold tracking-wide">
+          <div className="text-4xl font-semibold ">
             <h1
               className="sm:hidden md:hidden text-[36px] pb-2"
               style={{ marginBottom: "20px" }}

@@ -8,10 +8,10 @@ const Contact = () => {
     >
       <div className="flex flex-col  justify-center max-w-screen-lg pt-10 mx-auto h-full">
         <div className="ml-2 p-4">
-          <h2 className="text-3xl font-bold text-center sm:text-left sm:text-4xl sm:font-bold  text-custom-red  ">
+          <h2 className="text-2xl font-bold text-center sm:text-left sm:text-4xl sm:font-bold  text-custom-red  ">
             Contact
           </h2>
-          <p className="text-[19px] py-2 text-center sm:text-left font-normal  sm:text-2xl  text-white">
+          <p className="text-[17px] py-2 text-center sm:text-left font-normal  sm:text-2xl  text-white">
             Submit the form to get in touch with me!
           </p>
         </div>
@@ -43,7 +43,7 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="text-black font-semibold text-base bg-custom-red px-6 py-3 my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-200"
+              className="text-black sm:font-semibold sm:text-base text-[16px] font-medium bg-custom-red px-3 my-2 py-2 sm:px-6 sm:py-3 sm:my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-200"
             >
               Let's talk
             </button>

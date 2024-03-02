@@ -99,10 +99,10 @@ const Skills = () => {
     >
       <div className="max-w-screen-lg mx-auto  py-8">
         <div>
-          <h2 className="text-3xl font-bold text-center sm:text-left sm:text-4xl sm:font-bold text-custom-red ">
+          <h2 className="text-2xl font-bold text-center sm:text-left sm:text-4xl sm:font-bold text-custom-red ">
             Skills
           </h2>
-          <p className=" py-2 pb-10 text-[19px] font-normal text-center sm:text-left  sm:text-2xl">
+          <p className=" py-2 pb-10 text-[17px] font-normal text-center sm:text-left  sm:text-2xl">
             These are the technologies I've worked with
           </p>
         </div>

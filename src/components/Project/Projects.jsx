@@ -9,6 +9,13 @@ import { Link } from "react-router-dom";
 const Projects = () => {
   const portfolios = [
     {
+      id: 4,
+      src: project4,
+      desc: "Expense Tracker React js App",
+      demoto: "https://expense-tracker-reactjs-eta.vercel.app/",
+      codeto: "https://github.com/mahapara24/expense-tracker-reactjs",
+    },
+    {
       id: 1,
       src: project1,
       desc: "Github log Mern App",
@@ -29,13 +36,7 @@ const Projects = () => {
       demoto: "https://password-generator-reactapp.vercel.app/",
       codeto: "https://github.com/mahapara24/password-generator-reactapp",
     },
-    // {
-    //   id: 4,
-    //   src: project4,
-    //   desc: "BMI Calculator",
-    //   demoto: "https://mahapara24.github.io/BMI-app/",
-    //   codeto: "https://github.com/mahapara24/BMI-app",
-    // },
+
     // {
     //   id: 5,
     //   src: ,

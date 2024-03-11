@@ -5,7 +5,6 @@ import tailwind from "..//../assets/tailwind.svg";
 import js from "..//../assets/js.png";
 import react from "..//../assets/reactjs.png";
 import node from "..//../assets/node.png";
-import github from "..//../assets/github.png";
 
 import git from "..//../assets/git.png";
 import python from "../../assets/python.png";
@@ -119,6 +118,7 @@ const Skills = () => {
           ))}
         </div>
       </div>
+      {/* skills */}
     </div>
   );
 };

@@ -7,6 +7,7 @@ import About from "./components/About/About";
 import Skills from "./components/Skills/Skills";
 import Projects from "./components/Project/Projects";
 import Contact from "./components/Contact/Contact";
+import Experience from "./components/Experiance/Experience";
 
 function Layout() {
   return (
@@ -16,6 +17,7 @@ function Layout() {
       <Home />
       <About />
       <Skills />
+      <Experience />
       <Projects />
       <Contact />
       <Footer />

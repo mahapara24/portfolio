@@ -1,0 +1,53 @@
+/* src/App.css */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 20px 0;
+  margin-left: 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #ccc;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.timeline-date {
+  position: absolute;
+  left: -50px;
+  top: 0;
+  font-size: 14px;
+  color: #888;
+}
+
+.timeline-content {
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+}
+
+.timeline-content h4 {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.timeline-content p {
+  margin: 0;
+}

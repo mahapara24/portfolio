@@ -1,17 +1,113 @@
-import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const experiences = [
+  {
+    date: "January 2023 - May 2023",
+    role: "Frontend Developer",
+    company: "Recepio Limited",
+    description:
+      "Worked on a project and designed the landing page, with ReactJS and Tailwind CSS, contributing to approximately 60% of the project's frontend design. Collaborated with a team of three members.Utilized APIs for data handling, comprising 30% of frontend functionality.",
+  },
+  {
+    date: "June 2023 - August 2024",
+    role: "Full Stack Developer Intern",
+    company: "Movmi",
+    description:
+      "Developed a web application using Next.js, contributing 70% to the frontend design using tailwind shadcn, gsap and 40% to backend functionalities, including Google authentication integration.Implemented a responsive user interface and local storage for data management.",
+  },
+];
+
+const Timeline = ({ experiences }) => {
+  useEffect(() => {
+    const timelineItems = gsap.utils.toArray(".timeline-item");
+
+    timelineItems.forEach((item) => {
+      gsap.fromTo(
+        item,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: item,
+            start: "top 80%",
+            end: "bottom top",
+            toggleActions: "play none none reverse",
+            onEnter: () =>
+              gsap.fromTo(
+                item,
+                { opacity: 0, y: 50 },
+                {
+                  opacity: 1,
+                  y: 0,
+                  duration: 1,
+                  stagger: 0.2,
+                  ease: "power2.out",
+                }
+              ),
+            onLeaveBack: () =>
+              gsap.fromTo(
+                item,
+                { opacity: 1, y: 0 },
+                {
+                  opacity: 0,
+                  y: 50,
+                  duration: 1,
+                  stagger: 0.2,
+                  ease: "power2.out",
+                }
+              ),
+          },
+        }
+      );
+    });
+  }, []);
+
+  return (
+    <div className="relative pl-4 before:absolute before:left-2 before:top-0 before:bottom-0 before:w-1 before:bg-gray-300">
+      {experiences.map((exp, index) => (
+        <div
+          className="timeline-item relative mb-8 flex items-start"
+          key={index}
+        >
+          <div className="absolute xl:left-[-12vw] left-2 top-0   lg:right-[-8vw]  text-sm text-custom-red">
+            {exp.date}
+          </div>
+          <div className="bg-dark-gray p-4 mt-10 xl:mt-0 text-white rounded-lg shadow-md max-w-md ml-4">
+            <h3 className="font-semibold text-custom-red">{exp.role}</h3>
+            <h4 className=" mb-2 text-custom-red">{exp.company}</h4>
+            <p>{exp.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+Timeline.defaultProps = {
+  experiences: [],
+};
 
 function Experience() {
   return (
-    <div className="snap-y px-10 h-screen w-full py-40 overflow-y-auto sm:overflow-hidden scroll-smooth  sm:py-40 sm:px-60 sm:pb-20  bg-primary-gray  ">
-      <div className="sm:max-w-screen-lg pt-20 sm:p-4 flex flex-col justify-center  sm:py-30 sm:px-30 "></div>
+    <div className="snap-y flex flex-col items-center justify-center min-h-screen py-40 sm:px-20 bg-primary-gray">
+      <div className="sm:max-w-screen-lg pt-20 sm:p-4 flex flex-col justify-center sm:py-30 sm:px-10">
+        <h2 className="text-2xl font-bold text-center sm:text-left sm:text-4xl sm:font-bold text-custom-red">
+          Experience
+        </h2>
+      </div>
+      <div className="mt-8">
+        <Timeline experiences={experiences} />
+      </div>
     </div>
   );
 }
 
 export default Experience;
-
-export const githubinfoLoader = async () => {
-  const response = await fetch("https://api.github.com/users/mahapara24");
-  return response.json();
-};

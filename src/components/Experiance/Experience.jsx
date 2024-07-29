@@ -11,13 +11,21 @@ const experiences = [
     company: "Recepio Limited",
     description:
       "Worked on a project and designed the landing page, with ReactJS and Tailwind CSS, contributing to approximately 60% of the project's frontend design. Collaborated with a team of three members.Utilized APIs for data handling, comprising 30% of frontend functionality.",
+    technolgies: ["React.js", "Tailwind css", "API"],
   },
   {
     date: "June 2023 - August 2024",
     role: "Full Stack Developer Intern",
     company: "Movmi",
     description:
-      "Developed a web application using Next.js, contributing 70% to the frontend design using tailwind shadcn, gsap and 40% to backend functionalities, including Google authentication integration.Implemented a responsive user interface and local storage for data management.",
+      "Developed a web application using Next.js, contributing 70% to the frontend design using Tailwind, Shadcn, GSAP and 40% to backend functionalities, including Google authentication integration.Implemented a responsive user interface and local storage for data management.",
+    technolgies: [
+      "Next.js",
+      "Tailwind css",
+      "Shadcn",
+      "GSAP",
+      "Authentication",
+    ],
   },
 ];
 
@@ -73,20 +81,30 @@ const Timeline = ({ experiences }) => {
   return (
     <div
       id="experience"
-      className="relative  pl-4 before:absolute before:left-2 before:top-0 before:bottom-0 before:w-1 before:bg-gray-300"
+      className="relative pl-4 before:absolute before:left-2 before:top-0 before:bottom-0 before:w-1 before:bg-gray-300"
     >
       {experiences.map((exp, index) => (
         <div
           className="timeline-item relative mb-8 flex items-start"
           key={index}
         >
-          <div className="absolute xl:left-[-12vw] left-2 top-0   lg:right-[-8vw]  text-sm text-custom-red">
+          <div className="absolute xl:left-[-12vw] left-2 top-0 lg:right-[-8vw] text-sm text-custom-red">
             {exp.date}
           </div>
           <div className="bg-dark-gray p-4 mt-10 xl:mt-0 text-white rounded-lg shadow-md max-w-md ml-4">
             <h3 className="font-semibold text-custom-red">{exp.role}</h3>
-            <h4 className=" mb-2 text-custom-red">{exp.company}</h4>
+            <h4 className="mb-2 text-custom-red">{exp.company}</h4>
             <p>{exp.description}</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {exp.technolgies.map((tech, index) => (
+                <span
+                  key={index}
+                  className="bg-gray-800 text-custom-red px-3 py-1 rounded-md shadow-sm"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       ))}

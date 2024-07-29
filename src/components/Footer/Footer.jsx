@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="fixed bottom-0 right-0 p-4 pr-20 scrollbar-hide scroll-smooth bg-dark-gray w-full">
-      <div className="flex flex-row items-center justify-center sm:flex-row sm:items-end sm:justify-end gap-5">
+    <div className="fixed bottom-0 right-0 p-2 pr-20 scrollbar-hide scroll-smooth bg-dark-gray w-full">
+      <div className="flex flex-row items-center  justify-center sm:flex-row sm:items-end sm:justify-end gap-5">
         <div>
           <Link
             to="https://www.linkedin.com/in/mahapara-nizamani-1ba88b292/"

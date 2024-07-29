@@ -8,10 +8,10 @@ const Contact = () => {
     >
       <div className="flex flex-col  justify-center max-w-screen-lg pt-10 mx-auto h-full">
         <div className="ml-2 p-4">
-          <h2 className="text-2xl font-bold text-center sm:text-left sm:text-4xl sm:font-bold  text-custom-red  ">
+          <h2 className="text-2xl font-bold text-center  sm:text-4xl sm:font-bold  text-custom-red  ">
             Contact
           </h2>
-          <p className="text-[17px] py-2 text-center sm:text-left font-normal  sm:text-2xl  text-white">
+          <p className="text-[17px] py-2 text-center  font-normal  sm:text-2xl  text-white">
             Submit the form to get in touch with me!
           </p>
         </div>

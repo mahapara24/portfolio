@@ -71,7 +71,10 @@ const Timeline = ({ experiences }) => {
   }, []);
 
   return (
-    <div className="relative pl-4 before:absolute before:left-2 before:top-0 before:bottom-0 before:w-1 before:bg-gray-300">
+    <div
+      id="experience"
+      className="relative  pl-4 before:absolute before:left-2 before:top-0 before:bottom-0 before:w-1 before:bg-gray-300"
+    >
       {experiences.map((exp, index) => (
         <div
           className="timeline-item relative mb-8 flex items-start"
@@ -97,7 +100,10 @@ Timeline.defaultProps = {
 
 function Experience() {
   return (
-    <div className="snap-y flex flex-col items-center justify-center min-h-screen py-40 sm:px-20 bg-primary-gray">
+    <div
+      id="experience"
+      className="snap-y scrollbar-hide scroll-smooth flex flex-col items-center justify-center min-h-screen py-40 sm:px-20 bg-primary-gray"
+    >
       <div className="sm:max-w-screen-lg pt-20 sm:p-4 flex flex-col justify-center sm:py-30 sm:px-10">
         <h2 className="text-2xl font-bold text-center sm:text-left sm:text-4xl sm:font-bold text-custom-red">
           Experience

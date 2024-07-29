@@ -94,7 +94,7 @@ const Skills = () => {
   return (
     <div
       id="skills"
-      className="h-full max-h-screen  py-10 pb-50 scrollbar-hide scroll-smooth bg-primary-gray  text-white  sm:pt-20 sm:h-screen"
+      className="h-full max-h-screen  py-10  scrollbar-hide scroll-smooth bg-primary-gray  text-white  sm:pt-20 sm:h-screen"
     >
       <div className="max-w-screen-lg mx-auto  py-8">
         <div>

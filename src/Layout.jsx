@@ -17,7 +17,9 @@ function Layout() {
       <Home />
       <About />
       <Skills />
-      <Experience />
+      <div className="pb-20">
+        <Experience />
+      </div>
       <Projects />
       <Contact />
       <Footer />

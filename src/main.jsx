@@ -17,6 +17,7 @@ import Contact from "./components/Contact/Contact.jsx";
 import User from "./components/User/User.jsx";
 // import Github, { githubinfoLoader } from "./assets/Githubb/Github.jsx;
 import Hearder from "./components/Header/Hearder.jsx";
+import Experience from "./components/Experiance/Experience.jsx";
 // const router = createBrowserRouter ([
 //   {
 //     path: "",
@@ -60,6 +61,8 @@ const router = createBrowserRouter(
       <Route path="home" element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="skills" element={<Skills />} />
+      <Route path="experience" element={<Experience />} />
+
       <Route path="projects" element={<Projects />} />
       <Route path="contact" element={<Contact />} />
       <Route path="userid" element={<User />} />

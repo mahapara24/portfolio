@@ -17,9 +17,11 @@ function App() {
         <Hearder />
         <Home />
         <About />
-        <Skills />
-        <div className="">
+        <div className="mb-2">
           {" "}
+          <Skills />
+        </div>{" "}
+        <div className="pb-20">
           <Experience />
         </div>
         <Projects />

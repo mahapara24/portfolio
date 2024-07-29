@@ -85,6 +85,28 @@ const Header = () => {
           </li>
           <li>
             <Scroll
+              activeClass=""
+              to="experience"
+              spy={true}
+              smooth={true}
+              offset={2} // Adjust offset as needed
+              duration={500}
+              className="block pl-3 duration-200 text-custom-red border-custom-red lg:hover:bg-transparent"
+            >
+              <NavLink
+                to="/experience"
+                className={({ isActive }) =>
+                  `block pl-3 cursor-pointer duration-200 ${
+                    isActive ? "text-white" : "text-custom-red"
+                  } border-custom-red lg:hover:bg-transparent`
+                }
+              >
+                Experience
+              </NavLink>
+            </Scroll>
+          </li>
+          <li>
+            <Scroll
               activeClass="active"
               to="projects"
               spy={true}
@@ -242,6 +264,33 @@ const Header = () => {
                 }
               >
                 Skills
+              </NavLink>
+            </Scroll>
+          </li>
+          <li className="cursor-pointer capitalize py-6 font-semibold text-2xl">
+            <Scroll
+              activeClass="active"
+              to="experience"
+              spy={true}
+              smooth={true}
+              offset={-70} // Adjust offset as needed
+              duration={500}
+              className={({ isActive }) =>
+                `block pl-3 cursor-pointer duration-200 ${
+                  isActive ? "text-white" : "text-custom-red"
+                } border-custom-red lg:hover:bg-transparent`
+              }
+            >
+              <NavLink
+                to="/experience"
+                onClick={() => setNav(!nav)}
+                className={({ isActive }) =>
+                  `block pl-3 cursor-pointer duration-200 ${
+                    isActive ? "text-white" : "text-custom-red"
+                  } border-custom-red `
+                }
+              >
+                Experience
               </NavLink>
             </Scroll>
           </li>

@@ -14,7 +14,7 @@ const experiences = [
     technolgies: ["React.js", "Tailwind css", "API"],
   },
   {
-    date: "June 2023 - August 2024",
+    date: "June 2024 - August 2024",
     role: "Full Stack Developer Intern",
     company: "Movmi",
     description:

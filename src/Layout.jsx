@@ -21,8 +21,12 @@ function Layout() {
         <Experience />
       </div>
       <Projects />
-      <Contact />
-      <Footer />
+      <div className="lg:pt-28">
+        {" "}
+        <Contact />
+      </div>
+
+      {/* <Footer /> */}
     </>
   );
 }

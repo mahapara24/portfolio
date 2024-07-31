@@ -1,53 +1,51 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 const Contact = () => {
   return (
     <div
       id="contact"
-      className="w-full h-full overflow-scroll overflow-y-scroll pb-2 mb-8 pt-50  sm:pt-2 bg-primary-gray sm:overflow-hidden  "
+      className="w-full h-full overflow-scroll overflow-y-scroll  pt-50  sm:pt-2 bg-primary-gray sm:overflow-hidden  "
     >
       <div className="flex flex-col  justify-center max-w-screen-lg pt-10 mx-auto h-full">
+        contact
         <div className="ml-2 p-4">
           <h2 className="text-2xl font-bold text-center  sm:text-4xl sm:font-bold  text-custom-red  ">
             Contact
           </h2>
-          <p className="text-[17px] py-2 text-center  font-normal  sm:text-2xl  text-white">
-            Submit the form to get in touch with me!
+          <p className="text-[17px] pt-10 text-center  font-normal  sm:text-2xl  text-white">
+            Get in Touch
           </p>
         </div>
-
-        <div className="flex pt-4 justify-center items-center">
-          <form
-            action="https://getform.io/f/6aafd976-6754-470f-b1e6-0f5c35a23a82"
-            method="POST"
-            className=" flex flex-col w-[300px] h-full md:w-1/2"
+        <div className="flex pt-2 justify-center items-center">
+          <a
+            href="mailto:mahapara2424@gmail.com"
+            className="text-black rounded-md px-4 py-2 text-lg bg-custom-red hover:bg-custom-red-dark transition-all duration-300"
           >
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter your name "
-              className="bg-dark-gray p-2 bg-transparent border-2  rounded-md text-white focus:outline-none"
-            />
-            <input
-              type="text"
-              name="email"
-              placeholder="Enter your email "
-              className="bg-dark-gray my-4 p-2 bg-transparent border-2  rounded-md text-white focus:outline-none"
-            />
-            <textarea
-              name="message"
-              rows="10"
-              placeholder="Enter your message"
-              className="p-2 bg-primary-gray    border-2  rounded-md text-white focus:outline-none"
-            ></textarea>
-
-            <button
-              type="submit"
-              className="text-black sm:font-semibold sm:text-base text-[16px] font-medium bg-custom-red px-3 my-2 py-2 sm:px-6 sm:py-3 sm:my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-200"
+            mahapara2424@gmail.com{" "}
+          </a>
+        </div>
+        <div className="flex flex-row items-center  justify-center pt-6 gap-6">
+          <div>
+            <Link
+              to="https://www.linkedin.com/in/mahapara-nizamani-1ba88b292/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Let's talk
-            </button>
-          </form>
+              <BsLinkedin color="#33D1FF" size={25} />
+            </Link>
+          </div>
+          <div>
+            <Link
+              to="https://github.com/mahapara24"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <BsGithub color="#33D1FF" size={25} />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ function Layout() {
       <Home />
       <About />
       <Skills />
-      <div className="pb-20">
+      <div className="">
         <Experience />
       </div>
       <Projects />

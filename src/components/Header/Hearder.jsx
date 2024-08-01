@@ -7,8 +7,8 @@ const Header = () => {
   const [nav, setNav] = useState(false);
 
   return (
-    <header className="flex flex-col z-50 fixed top-0 w-full bg-dark-gray/10">
-      <div className="overflow-hidden flex justify-between items-center py-2 px-4 h-20 bg-dark-gray">
+    <header className="flex  flex-col z-50 fixed top-0 w-full bg-dark-gray/10">
+      <div className="overflow-hidden flex justify-between items-center py-2 px-2 h-20 bg-dark-gray">
         <div>
           <h1 className="tracking-wider ml-2 text-xl font-medium sm:text-3xl text-custom-red sm:font-semibold">
             Mahapara Nizamani

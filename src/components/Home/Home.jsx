@@ -13,7 +13,7 @@ function Home() {
   return (
     <div
       id="home"
-      className="h-screen w-full bg-primary-gray scrollbar-hide scroll-smooth sm:items-start pt-64 pl-4 sm:pl-20 sm:pt-72"
+      className="h-screen overflow-x-scroll bg-primary-gray scrollbar-hide scroll-smooth sm:items-start pt-64 pl-4 sm:pl-20 sm:pt-72"
     >
       <div className="text-left sm:px-2 sm:py-16">
         <div className="text-2xl ml-4 items-left  text-white font- font-bold leading-tight sm:text-6xl">

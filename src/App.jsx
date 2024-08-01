@@ -13,19 +13,26 @@ import Experience from "./components/Experiance/Experience";
 function App() {
   return (
     <>
-      <div>
+      <div className="over-x-hidden">
         <Hearder />
-        <Home />
+        <div className=" overflow-x-hidden">
+          {" "}
+          <Home />
+        </div>
         <About />
-        <div className="mb-2">
+        <div className="mb-2 overflow-x-hidden">
           {" "}
           <Skills />
         </div>{" "}
-        <div className="pb-20">
+        <div className="pb-20 overflow-x-hidden">
           <Experience />
         </div>
-        <Projects />
-        <Contact />
+        <div className=" overflow-x-hidden">
+          <Projects />
+        </div>{" "}
+        <div className=" overflow-x-hidden">
+          <Contact />
+        </div>
         <User />
       </div>
     </>

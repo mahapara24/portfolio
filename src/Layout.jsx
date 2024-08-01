@@ -11,12 +11,18 @@ import Experience from "./components/Experiance/Experience";
 
 function Layout() {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Hearder />
+      <div className="py-2">
+        {" "}
+        <Home />
+      </div>
 
-      <Home />
       <About />
-      <Skills />
+      <div className="py-0">
+        <Skills />
+      </div>
+
       <div className="">
         <Experience />
       </div>
@@ -27,7 +33,7 @@ function Layout() {
       </div>
 
       {/* <Footer /> */}
-    </>
+    </div>
   );
 }
 

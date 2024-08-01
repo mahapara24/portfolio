@@ -105,7 +105,7 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className="bg-primary-gray pt-20 scrollbar-hide scroll-smooth w-full sm:pt-10"
+      className="bg-primary-gray pt-20 scrollbar-hide scroll-smooth overscroll-x-none sm:pt-10"
     >
       <div className="max-w-screen-lg mx-auto flex flex-col justify-center w-full h-full px-4">
         <div className="pb-4 pt-12 sm:pt-6">

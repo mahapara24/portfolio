@@ -81,7 +81,7 @@ const Timeline = ({ experiences }) => {
   return (
     <div
       id="experience"
-      className="relative pl-4 before:absolute before:left-2 before:top-0 before:bottom-0 before:w-1 before:bg-gray-300"
+      className="relative pl-4 pt-0  before:absolute before:left-2 before:top-0 before:bottom-0 before:w-1 before:bg-gray-300"
     >
       {experiences.map((exp, index) => (
         <div

@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
-    date: "June 2024 - August 2024",
+    date: "June 2024 - Aug 2024",
     role: "Full Stack Developer Intern",
     company: "Movmi",
     description:
@@ -20,7 +20,7 @@ const experiences = [
     ],
   },
   {
-    date: "December 2023 - February 2024",
+    date: "Dec 2023 - Feb 2024",
     role: "Frontend Developer",
     company: "Recepio Limited",
     description:

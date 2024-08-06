@@ -6,14 +6,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
-    date: "January 2023 - May 2023",
-    role: "Frontend Developer",
-    company: "Recepio Limited",
-    description:
-      "Worked on a project and designed the landing page, with ReactJS and Tailwind CSS, contributing to approximately 60% of the project's frontend design. Collaborated with a team of three members.Utilized APIs for data handling, comprising 30% of frontend functionality.",
-    technolgies: ["React.js", "Tailwind css", "API"],
-  },
-  {
     date: "June 2024 - August 2024",
     role: "Full Stack Developer Intern",
     company: "Movmi",
@@ -26,6 +18,14 @@ const experiences = [
       "GSAP",
       "Authentication",
     ],
+  },
+  {
+    date: "December 2023 - February 2024",
+    role: "Frontend Developer",
+    company: "Recepio Limited",
+    description:
+      "Worked on a project and designed the landing page, with ReactJS and Tailwind CSS, contributing to approximately 60% of the project's frontend design. Collaborated with a team of three members.Utilized APIs for data handling, comprising 30% of frontend functionality.",
+    technolgies: ["React.js", "Tailwind css", "API"],
   },
 ];
 

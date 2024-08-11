@@ -6,6 +6,7 @@ import project2 from "../../assets/portfolio/project2.png";
 import project3 from "../../assets/portfolio/project3.png";
 import project4 from "../../assets/portfolio/project4.png";
 import project5 from "../../assets/portfolio/project5.png";
+import pedro from "../../assets/portfolio/pedro.png";
 import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -99,6 +100,17 @@ const Projects = () => {
       technologies: ["React js", "Tailwind css"],
       demoto: "https://password-generator-reactapp.vercel.app/",
       codeto: "https://github.com/mahapara24/password-generator-reactapp",
+    },
+    {
+      id: 4,
+      src: pedro,
+      title: "Pedro's Website UI Based Project",
+      description:
+        "Pedro's Website UI Based Project Using Next js and Tailwind css ",
+      technologies: ["Next js", "Tailwind css"],
+      demoto: "https://travel-app-modern-ux.vercel.app/",
+      codeto:
+        "https://github.com/mahapara24/travel-app-modern-ux/blob/main/src/app/layout.tsx",
     },
   ];
 

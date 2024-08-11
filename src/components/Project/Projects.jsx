@@ -131,7 +131,7 @@ const Projects = () => {
               />
 
               <div className="flex-1 project-content p-4 sm:p-6">
-                <h3 className="text-white text-lg sm:text-xl font-semibold mb-2">
+                <h3 className="text-custom-red text-lg sm:text-2xl font-semibold mb-2">
                   {portfolio.title}
                 </h3>
                 <p className="text-white mb-4 text-sm sm:text-base">

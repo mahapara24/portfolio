@@ -29,3 +29,8 @@
 body {
   @apply bg-primary-gray;
 }
+@layer utilities {
+  .text-shadow-glow-custom-red {
+    text-shadow: 0 0 8px rgba(64, 209, 255, 1);
+  }
+}

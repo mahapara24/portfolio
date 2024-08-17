@@ -10,12 +10,12 @@ const Header = () => {
     <header className="flex  flex-col z-50 fixed top-0 w-full bg-dark-gray/10">
       <div className="overflow-hidden flex justify-between items-center py-2 px-2 h-[60px] bg-dark-gray">
         <div>
-          <h1 className="tracking-wider ml-2 text-lg font-medium sm:text-2xl text-custom-red sm:font-semibold">
+          <h1 className="tracking-wider ml-2 text-shadow-glow-custom-red  text-lg font-medium sm:text-2xl text-custom-red sm:font-semibold">
             Mahapara Nizamani
           </h1>{" "}
         </div>
 
-        <ul className="hidden sm:font-semibold tracking-wide md:flex  justify-center text-xl mr-4">
+        <ul className="hidden sm:font-semibold tracking-wide md:flex  text-shadow-glow-custom-red justify-center text-xl mr-4">
           <li>
             <Scroll
               activeClass="active"

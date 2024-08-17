@@ -62,18 +62,18 @@ function Home() {
           </div>
 
           <div className="flex justify-between gap-8">
-            <button className="px-2 py-2 text-base mt-3 flex items-start font-medium sm:mt-8 sm:text-xl sm:font-semibold text-black bg-custom-red sm:px-6 sm:py-3 sm:my-3 sm:flex sm:items-center rounded-md border-2 border-custom-red hover:bg-custom-red/90">
+            <button className="px-2 py-2 shadow-glow-custom-red text-base mt-3 flex items-center font-medium text-black bg-custom-red border-2 border-custom-red rounded-md hover:bg-custom-red/90 sm:px-4 sm:py-3 sm:text-xl sm:mt-8 sm:font-semibold">
               <a
                 href="MAHAPARA-SOFTWARE-DEVELOPER.pdf"
                 target="_blank"
-                alt="alt text"
                 rel="noopener noreferrer"
+                className="flex items-center"
               >
                 Download Resume
               </a>
 
               <span className="ml-2">
-                <BsFillPersonLinesFill size={25} />
+                <BsFillPersonLinesFill className="h-4 w-4 sm:h-6 sm:w-6" />
               </span>
             </button>
           </div>

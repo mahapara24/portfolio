@@ -10,7 +10,7 @@ const Contact = () => {
     >
       <div className="flex flex-col justify-center max-w-screen-lg pt-10 mx-auto h-full">
         <div className="ml-2 p-4">
-          <h2 className="text-2xl font-bold text-center sm:text-4xl sm:font-bold text-custom-red transition-transform transform hover:scale-105">
+          <h2 className="text-2xl  font-bold text-center sm:text-4xl sm:font-bold text-custom-red transition-transform transform hover:scale-105">
             Contact
           </h2>
           <p className="text-[17px] pt-10 text-center font-normal sm:text-2xl text-white transition-opacity opacity-70 hover:opacity-100">

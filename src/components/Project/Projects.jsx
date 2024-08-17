@@ -121,7 +121,7 @@ const Projects = () => {
     >
       <div className="max-w-screen-lg mx-auto flex flex-col justify-center w-full h-full px-4">
         <div className="pb-4 pt-12 sm:pt-6">
-          <h2 className="text-2xl font-bold text-center sm:text-left text-custom-red sm:text-3xl">
+          <h2 className="text-2xl font-bold text-center sm:text-left  text-custom-red sm:text-3xl">
             Projects
           </h2>
           <p className="py-2 pb-8 sm:pb-6 text-center sm:text-left text-base sm:text-lg font-normal text-white">

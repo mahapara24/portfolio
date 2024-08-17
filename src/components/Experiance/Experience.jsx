@@ -47,7 +47,6 @@ const Timeline = ({ experiences }) => {
             trigger: item,
             start: "top 80%",
             end: "bottom top",
-            toggleActions: "play none none reverse",
             onEnter: () =>
               gsap.fromTo(
                 item,
@@ -60,18 +59,18 @@ const Timeline = ({ experiences }) => {
                   ease: "power2.out",
                 }
               ),
-            onLeaveBack: () =>
-              gsap.fromTo(
-                item,
-                { opacity: 1, y: 0 },
-                {
-                  opacity: 0,
-                  y: 50,
-                  duration: 1,
-                  stagger: 0.2,
-                  ease: "power2.out",
-                }
-              ),
+            // onLeaveBack: () =>
+            //   gsap.fromTo(
+            //     item,
+            //     { opacity: 1, y: 0 },
+            //     {
+            //       opacity: 0,
+            //       y: 50,
+            //       duration: 1,
+            //       stagger: 0.2,
+            //       ease: "power2.out",
+            //     }
+            //   ),
           },
         }
       );

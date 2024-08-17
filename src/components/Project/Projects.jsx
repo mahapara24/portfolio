@@ -12,47 +12,48 @@ import { Link } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
-  useEffect(() => {
-    const projects = document.querySelectorAll(".project-item");
+  // useEffect(() => {
+  //   const projects = document.querySelectorAll(".project-item");
 
-    projects.forEach((project) => {
-      gsap.fromTo(
-        project.querySelector(".project-image"),
-        { x: -100, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: project,
-            start: "top bottom",
-            end: "top center",
-            scrub: 1,
-            markers: false,
-          },
-        }
-      );
+  //   projects.forEach((project) => {
+  //     gsap.fromTo(
+  //       project.querySelector(".project-image"),
+  //       { x: -100, opacity: 0 },
+  //       {
+  //         x: 0,
+  //         opacity: 1,
+  //         duration: 1,
+  //         stagger: true,
+  //         ease: "power3.out",
+  //         scrollTrigger: {
+  //           trigger: project,
+  //           start: "top bottom",
+  //           end: "top center",
+  //           scrub: 1,
+  //           markers: false,
+  //         },
+  //       }
+  //     );
 
-      gsap.fromTo(
-        project.querySelector(".project-content"),
-        { x: 100, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: project,
-            start: "top bottom",
-            end: "top center",
-            scrub: 1,
-            markers: false,
-          },
-        }
-      );
-    });
-  }, []);
+  //     gsap.fromTo(
+  //       project.querySelector(".project-content"),
+  //       { x: 100, opacity: 0 },
+  //       {
+  //         x: 0,
+  //         opacity: 1,
+  //         duration: 1,
+  //         ease: "power3.out",
+  //         scrollTrigger: {
+  //           trigger: project,
+  //           start: "top bottom",
+  //           end: "top center",
+  //           scrub: 1,
+  //           markers: false,
+  //         },
+  //       }
+  //     );
+  //   });
+  // }, []);
 
   const portfolios = [
     {
@@ -121,7 +122,7 @@ const Projects = () => {
     >
       <div className="max-w-screen-lg mx-auto flex flex-col justify-center w-full h-full px-4">
         <div className="pb-4 pt-12 sm:pt-6">
-          <h2 className="text-2xl font-bold text-center sm:text-left  text-custom-red sm:text-3xl">
+          <h2 className="text-2xl font-bold text-center sm:text-left text-custom-red sm:text-3xl">
             Projects
           </h2>
           <p className="py-2 pb-8 sm:pb-6 text-center sm:text-left text-base sm:text-lg font-normal text-white">
@@ -129,17 +130,17 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="space-y-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {portfolios.map((portfolio) => (
             <div
               key={portfolio.id}
-              className="project-item flex flex-col sm:flex-row items-center rounded-lg p-4 sm:p-6 shadow-md bg-dark-gray/90"
+              className="project-item flex flex-col items-center rounded-lg p-4 sm:p-6 shadow-md bg-dark-gray/90"
             >
               <img
                 src={portfolio.src}
                 alt={portfolio.title}
-                className="project-image w-full sm:w-1/2 rounded-md mb-4 sm:mb-0 sm:mr-4 duration-200 hover:scale-105"
-                style={{ background: "none" }} // Ensures no background color on the image
+                className="project-image w-full rounded-md mb-4 sm:mb-0 duration-200 hover:scale-105"
+                style={{ background: "none" }}
               />
 
               <div className="flex-1 project-content p-4 sm:p-6">

@@ -24,7 +24,7 @@ const experiences = [
     role: "Frontend Developer",
     company: "Recepio Limited",
     description:
-      "Worked on a project and designed the landing page, with ReactJS and Tailwind CSS, contributing to approximately 60% of the project's frontend design. Collaborated with a team of three members.Utilized APIs for data handling, comprising 30% of frontend functionality.",
+      "Worked on a project and designed the landing page, with ReactJS and Tailwind CSS, contributing to approximately 60% of the project's frontend design. Collaborated with a team of three members.Utilized APIs for data handling.",
     technolgies: ["React.js", "Tailwind css", "API"],
   },
 ];

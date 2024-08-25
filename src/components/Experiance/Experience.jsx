@@ -10,7 +10,7 @@ const experiences = [
     role: "Full Stack Developer Intern",
     company: "Movmi",
     description:
-      "Developed a web application using Next.js, contributing 70% to the frontend design using Tailwind, Shadcn, GSAP and 40% to backend functionalities, including Google authentication integration.Implemented a responsive user interface and local storage for data management.",
+      "Developed a web application using Next.js, contributing 70% to the frontend design using Tailwind, Shadcn, GSAP and 30% to backend functionalities, including Google authentication integration.Implemented a responsive user interface and local storage for data management.",
     technolgies: [
       "Next.js",
       "Tailwind css",

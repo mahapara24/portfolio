@@ -6,11 +6,27 @@ gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
+    date: "Sep 2024 - Oct 2024",
+    role: "Full Stack Developer Intern",
+    company: "Indus Technetronic",
+    description:
+      "Worked on the Netaxx project, building UI components with Tailwind CSS and Tailwind Parts to ensure responsiveness. Also handled API integration for the contact form.",
+    technolgies: ["Next.js", "Tailwind css"],
+  },
+  {
+    date: "Sep 2024 - Oct 2024",
+    role: " Frontend Developer Intern",
+    company: "2ndPlace",
+    description:
+      "Collaborated with a team to develop the 2ndPlace website using React.js and Material UI, building responsive layouts and implementing location-based search functionality.",
+    technolgies: ["React.js", "Material UI"],
+  },
+  {
     date: "June 2024 - Aug 2024",
     role: "Full Stack Developer Intern",
     company: "Movmi",
     description:
-      "Developed a web application using Next.js, contributing 70% to the frontend design using Tailwind, Shadcn, GSAP and 30% to backend functionalities, including Google authentication integration.Implemented a responsive user interface and local storage for data management.",
+      "Developed Movmi official web application using Next.js, contributing 80% to the frontend design using tailwind shadcn, gsap and implemented a responsive user interface.",
     technolgies: [
       "Next.js",
       "Tailwind css",

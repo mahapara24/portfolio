@@ -5,14 +5,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
-  {
-    date: "Sep 2024 - Nov 2024",
-    role: "Full Stack Developer Intern",
-    company: "Indus Technetronic",
-    description:
-      "Worked on the Netaxx project, building UI components with Tailwind CSS and Tailwind Parts to ensure responsiveness. Also handled API integration for the contact form.",
-    technolgies: ["Next.js", "Tailwind css"],
-  },
+  // {
+  //   date: "Sep 2024 - Nov 2024",
+  //   role: "Full Stack Developer Intern",
+  //   company: "Indus Technetronic",
+  //   description:
+  //     "Worked on the Netaxx project, building UI components with Tailwind CSS and Tailwind Parts to ensure responsiveness. Also handled API integration for the contact form.",
+  //   technolgies: ["Next.js", "Tailwind css"],
+  // },
   {
     date: "Sep 2024 - Oct 2024",
     role: " Frontend Developer Intern",
@@ -23,7 +23,7 @@ const experiences = [
   },
   {
     date: "June 2024 - Aug 2024",
-    role: "Full Stack Developer Intern",
+    role: "Web Developer Intern",
     company: "Movmi",
     description:
       "Developed Movmi official web application using Next.js, contributing 80% to the frontend design using tailwind shadcn, gsap and implemented a responsive user interface.",

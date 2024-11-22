@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
-    date: "Sep 2024 - Oct 2024",
+    date: "Sep 2024 - Nov 2024",
     role: "Full Stack Developer Intern",
     company: "Indus Technetronic",
     description:

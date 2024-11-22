@@ -7,6 +7,9 @@ import project3 from "../../assets/portfolio/project3.png";
 import project4 from "../../assets/portfolio/project4.png";
 import project5 from "../../assets/portfolio/project5.png";
 import pedro from "../../assets/portfolio/pedro.png";
+import shia from "../../assets/portfolio/shiamatch.png";
+import apex from "../../assets/portfolio/apex.png";
+import xbyte from "../../assets/portfolio/xbyte.png";
 import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -93,15 +96,7 @@ const Projects = () => {
       demoto: "https://music-school-nextjs.vercel.app/",
       codeto: "https://github.com/mahapara24/music-school-nextjs",
     },
-    {
-      id: 3,
-      src: project3,
-      title: "Password Generator React.js",
-      description: "A React.js project for generating secure passwords.",
-      technologies: ["React js", "Tailwind css"],
-      demoto: "https://password-generator-reactapp.vercel.app/",
-      codeto: "https://github.com/mahapara24/password-generator-reactapp",
-    },
+
     {
       id: 5,
       src: pedro,
@@ -112,6 +107,42 @@ const Projects = () => {
       demoto: "https://travel-app-modern-ux.vercel.app/",
       codeto:
         "https://github.com/mahapara24/travel-app-modern-ux/blob/main/src/app/layout.tsx",
+    },
+    {
+      id: 6,
+      src: shia,
+      title: "ShiaMatch Frontend Application",
+      description: "ShiaMatch website using React js and Tailwind Css ",
+      technologies: ["React js", "Tailwind css"],
+      demoto: "https://shia-match-frontend.vercel.app/",
+      codeto: "https://github.com/mahapara24/ShiaMatchFrontend",
+    },
+    {
+      id: 7,
+      src: apex,
+      title: "Apex Frontend Application",
+      description: "Apex webiste using Next js and tailwind css ",
+      demoto:
+        "https://apex-loads-nextjs-tailwindcss-mahapara-6gvnf8k21.vercel.app/",
+      codeto:
+        "https://github.com/mahapara24/apexLoads-nextjs-tailwindcss-mahapara",
+    },
+    {
+      id: 8,
+      src: xbyte,
+      title: "Xbyte.io Frontend Application",
+      description: "xbyte.io webiste using Next js and tailwind css ",
+      demoto: "https://xbyte-frontend-reactjs.vercel.app/",
+      codeto: "https://github.com/mahapara24/xbyte-frontend-reactjs",
+    },
+    {
+      id: 3,
+      src: project3,
+      title: "Password Generator React.js",
+      description: "A React.js project for generating secure passwords.",
+      technologies: ["React js", "Tailwind css"],
+      demoto: "https://password-generator-reactapp.vercel.app/",
+      codeto: "https://github.com/mahapara24/password-generator-reactapp",
     },
   ];
 

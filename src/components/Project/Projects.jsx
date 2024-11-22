@@ -122,6 +122,7 @@ const Projects = () => {
       src: apex,
       title: "Apex Frontend Application",
       description: "Apex webiste using Next js and tailwind css ",
+      technologies: ["React js", "Tailwind css"],
       demoto:
         "https://apex-loads-nextjs-tailwindcss-mahapara-6gvnf8k21.vercel.app/",
       codeto:
@@ -132,6 +133,7 @@ const Projects = () => {
       src: xbyte,
       title: "Xbyte.io Frontend Application",
       description: "xbyte.io webiste using Next js and tailwind css ",
+      technologies: ["React js", "Tailwind css"],
       demoto: "https://xbyte-frontend-reactjs.vercel.app/",
       codeto: "https://github.com/mahapara24/xbyte-frontend-reactjs",
     },

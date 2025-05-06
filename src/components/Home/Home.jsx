@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { motion, useAnimation } from "framer-motion";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
   const controls = useAnimation();
@@ -13,18 +16,126 @@ function Home() {
     deleteSpeed: 50,
   });
 
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const textRef = useRef(null);
+  const buttonsRef = useRef(null);
+  const backgroundRef = useRef(null);
+  const starsRef = useRef(null);
+
   useEffect(() => {
     controls.start({
       opacity: 1,
       y: 0,
       transition: { duration: 0.8 }
     });
+
+    const ctx = gsap.context(() => {
+      // Background fade in
+      gsap.fromTo(backgroundRef.current,
+        { opacity: 0 },
+        { 
+          opacity: 1,
+          duration: 2,
+          ease: "power2.out"
+        }
+      );
+
+      // Title elastic entrance
+      gsap.fromTo(titleRef.current,
+        { 
+          y: 100,
+          opacity: 0,
+          scale: 0.8
+        },
+        { 
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1.5,
+          ease: "elastic.out(1, 0.5)"
+        }
+      );
+
+      // Text fade in
+      gsap.fromTo(textRef.current,
+        { 
+          y: 50,
+          opacity: 0
+        },
+        { 
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          delay: 0.5,
+          ease: "power2.out"
+        }
+      );
+
+      // Buttons entrance
+      gsap.fromTo(buttonsRef.current,
+        { 
+          y: 30,
+          opacity: 0
+        },
+        { 
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          delay: 0.8,
+          ease: "power2.out"
+        }
+      );
+
+      // Stars animation
+      gsap.fromTo(starsRef.current.children,
+        { 
+          scale: 0,
+          opacity: 0
+        },
+        { 
+          scale: 1,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.1,
+          ease: "back.out(1.7)"
+        }
+      );
+
+      // Continuous animations
+      gsap.to(".floating-element", {
+        y: "20px",
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      });
+
+      // Mouse move parallax
+      const handleMouseMove = (e) => {
+        const { clientX, clientY } = e;
+        const xPos = (clientX / window.innerWidth - 0.5) * 20;
+        const yPos = (clientY / window.innerHeight - 0.5) * 20;
+
+        gsap.to(".parallax-element", {
+          x: xPos,
+          y: yPos,
+          duration: 1,
+          ease: "power2.out"
+        });
+      };
+
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, [controls]);
 
   return (
-    <div id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div ref={sectionRef} id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Enhanced Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-950 to-black">
+      <div ref={backgroundRef} className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-950 to-black">
         {/* Animated gradient overlay */}
         <motion.div
           className="absolute inset-0"
@@ -108,7 +219,7 @@ function Home() {
         />
 
         {/* Sparkling Stars */}
-        <div className="absolute inset-0 overflow-hidden">
+        <div ref={starsRef} className="absolute inset-0 overflow-hidden">
           {[...Array(30)].map((_, i) => (
             <motion.div
               key={i}
@@ -216,6 +327,7 @@ function Home() {
             />
 
             <motion.h2 
+              ref={titleRef}
               className="text-2xl sm:text-3xl text-gray-200 font-light mb-4 relative"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -241,6 +353,7 @@ function Home() {
             </motion.h2>
 
             <motion.h1 
+              ref={titleRef}
               className="text-4xl sm:text-6xl font-bold text-white mb-4 relative"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -268,6 +381,7 @@ function Home() {
             </motion.h1>
 
             <motion.p 
+              ref={textRef}
               className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto sm:mx-0 relative"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -295,6 +409,7 @@ function Home() {
 
           {/* Enhanced CTA Buttons */}
           <motion.div
+            ref={buttonsRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}

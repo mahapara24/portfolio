@@ -119,14 +119,13 @@ const Projects = () => {
     : portfolios.filter(project => project.category === activeFilter);
 
   return (
-    <div id="projects" className="w-full bg-primary-gray relative overflow-hidden min-h-screen">
-      {/* Enhanced background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-gray via-dark-gray to-secondary-gray opacity-90">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-red/5 via-transparent to-transparent animate-pulse"></div>
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+    <div id="projects" className="w-full min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Background gradient animation */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-950 to-black opacity-90">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-red/20 via-transparent to-transparent animate-pulse"></div>
       </div>
 
-      <div className="w-full max-w-7xl mx-auto px-4 py-16 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-4 py-12 md:py-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -144,7 +143,7 @@ const Projects = () => {
         </motion.div>
 
         {/* Category Filter */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -159,7 +158,7 @@ const Projects = () => {
               onClick={() => setActiveFilter(category)}
               className={`px-6 py-2 rounded-full font-medium transition-all duration-300 flex items-center gap-2
                 ${activeFilter === category 
-                  ? 'bg-custom-red text-black shadow-glow-custom-red' 
+                  ? 'bg-custom-red text-white shadow-glow-custom-red' 
                   : 'bg-dark-gray/50 text-gray-300 hover:bg-custom-red/20'}`}
             >
               <FaFilter className="h-4 w-4" />
@@ -169,7 +168,7 @@ const Projects = () => {
         </motion.div>
 
         <AnimatePresence mode="wait">
-          <motion.div 
+          <motion.div
             key={activeFilter}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -282,7 +281,7 @@ const Projects = () => {
             href="https://github.com/mahapara24"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-custom-red text-black font-semibold rounded-lg shadow-glow-custom-red hover:bg-custom-red/90 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-custom-red text-white font-semibold rounded-lg shadow-glow-custom-red hover:bg-custom-red/90 transition-all duration-300"
           >
             <FaGithub className="h-5 w-5" />
             View More Projects on GitHub

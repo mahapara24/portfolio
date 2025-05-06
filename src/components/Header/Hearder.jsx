@@ -1,365 +1,161 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link as Scroll } from "react-scroll";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [nav, setNav] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navItems = [
+    { to: "home", label: "Home" },
+    { to: "about", label: "About" },
+    { to: "skills", label: "Skills" },
+    { to: "experience", label: "Experience" },
+    { to: "projects", label: "Projects" },
+    { to: "contact", label: "Contact" },
+  ];
 
   return (
-    <header className="flex  flex-col z-50 fixed top-0 w-full bg-dark-gray/10">
-      <div className="overflow-hidden flex justify-between items-center py-2 px-2 h-[60px] bg-dark-gray">
-        <div>
-          <h1 className="tracking-wider ml-2 text-shadow-glow-custom-red  text-lg font-medium sm:text-2xl text-custom-red sm:font-semibold">
-            Mahapara Nizamani
-          </h1>{" "}
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-dark-gray/95 backdrop-blur-sm shadow-lg" : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center"
+          >
+            <h1 className="text-2xl font-bold text-custom-red tracking-wider">
+              <span className="bg-gradient-to-r from-custom-red to-blue-500 bg-clip-text text-transparent">
+                Mahapara
+              </span>
+              <span className="text-white"> Nizamani</span>
+            </h1>
+          </motion.div>
+
+          {/* Desktop Navigation */}
+          <motion.nav
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="hidden md:flex items-center space-x-1"
+          >
+            {navItems.map((item, index) => (
+              <motion.div
+                key={item.to}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Scroll
+                  activeClass="active"
+                  to={item.to}
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  <NavLink
+                    to={`/${item.to}`}
+                    className={({ isActive }) =>
+                      `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                        isActive
+                          ? "text-white bg-custom-red/10"
+                          : "text-gray-300 hover:text-white hover:bg-custom-red/5"
+                      }`
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                </Scroll>
+              </motion.div>
+            ))}
+          </motion.nav>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setNav(!nav)}
+            className="md:hidden text-custom-red p-2"
+          >
+            {nav ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </motion.button>
         </div>
-
-        <ul className="hidden sm:font-semibold tracking-wide md:flex  text-shadow-glow-custom-red justify-center text-xl mr-4">
-          <li>
-            <Scroll
-              activeClass="active"
-              to="home"
-              spy={true}
-              smooth={true}
-              offset={-70} // Adjust offset as needed
-              duration={500}
-              className="block pl-3 duration-200 text-custom-red border-custom-red lg:hover:bg-transparent"
-            >
-              <NavLink
-                to="home"
-                className={({ isActive }) =>
-                  `block pl-3 duration-200 ${
-                    isActive ? "text-white" : "text-custom-red "
-                  } border-custom-red lg:hover:bg-transparent`
-                }
-              >
-                Home
-              </NavLink>
-            </Scroll>
-          </li>
-
-          <li>
-            <Scroll
-              activeClass="active"
-              to="about"
-              spy={true}
-              smooth={true}
-              offset={-70} // Adjust offset as needed
-              duration={500}
-              className="block pl-3 duration-200 text-custom-red border-custom-red lg:hover:bg-transparent"
-            >
-              <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                  `block pl-3 cursor-pointer duration-200 ${
-                    isActive ? "text-white" : "text-custom-red"
-                  } border-custom-red lg:hover:bg-transparent`
-                }
-              >
-                About
-              </NavLink>
-            </Scroll>
-          </li>
-          <li>
-            <Scroll
-              activeClass="active"
-              to="skills"
-              spy={true}
-              smooth={true}
-              offset={-70} // Adjust offset as needed
-              duration={500}
-              className="block pl-3 duration-200 text-custom-red border-custom-red lg:hover:bg-transparent"
-            >
-              <NavLink
-                to="/skills"
-                className={({ isActive }) =>
-                  `block pl-3 cursor-pointer duration-200 ${
-                    isActive ? "text-white" : "text-custom-red"
-                  } border-custom-red lg:hover:bg-transparent`
-                }
-              >
-                Skills
-              </NavLink>
-            </Scroll>
-          </li>
-          <li>
-            <Scroll
-              activeClass=""
-              to="experience"
-              spy={true}
-              smooth={true}
-              offset={2} // Adjust offset as needed
-              duration={500}
-              className="block pl-3 duration-200 text-custom-red border-custom-red lg:hover:bg-transparent"
-            >
-              <NavLink
-                to="/experience"
-                className={({ isActive }) =>
-                  `block pl-3 cursor-pointer duration-200 ${
-                    isActive ? "text-white" : "text-custom-red"
-                  } border-custom-red lg:hover:bg-transparent`
-                }
-              >
-                Experience
-              </NavLink>
-            </Scroll>
-          </li>
-          <li>
-            <Scroll
-              activeClass="active"
-              to="projects"
-              spy={true}
-              smooth={true}
-              offset={-70} // Adjust offset as needed
-              duration={500}
-              className={({ isActive }) =>
-                `block pl-3 cursor-pointer duration-200 ${
-                  isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
-              }
-            >
-              <NavLink
-                to="/projects"
-                className={({ isActive }) =>
-                  `block pl-3 cursor-pointer duration-200 ${
-                    isActive ? "text-white" : "text-custom-red"
-                  } border-custom-red lg:hover:bg-transparent`
-                }
-              >
-                Projects
-              </NavLink>
-            </Scroll>
-          </li>
-          <li>
-            <Scroll
-              activeClass="active"
-              to="contact"
-              spy={true}
-              smooth={true}
-              offset={-70} // Adjust offset as needed
-              duration={500}
-              className={({ isActive }) =>
-                `block pl-3 cursor-pointer duration-200 ${
-                  isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
-              }
-            >
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  `block pl-3 cursor-pointer duration-200 ${
-                    isActive ? "text-white" : "text-custom-red"
-                  } border-custom-red lg:hover:bg-transparent`
-                }
-              >
-                Contact
-              </NavLink>
-            </Scroll>
-          </li>
-          {/* <li>
-            <NavLink
-              to="/github"
-              className={({ isActive }) =>
-                `block pl-3 cursor-pointer duration-200 ${
-                  isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
-              }
-            >
-              Github
-            </NavLink>
-          </li> */}
-        </ul>
       </div>
 
-      <div
-        onClick={() => setNav(!nav)}
-        className="pr-4  p-5 cursor-pointer sm:hidden text-custom-red"
-        style={{ zIndex: 1000, position: "absolute", top: "0", right: "0" }}
-      >
-        {nav ? (
-          <FaTimes className="" size={20} />
-        ) : (
-          <FaBars className="" size={20} />
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {nav && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "100vh" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden fixed inset-0 bg-dark-gray/95 backdrop-blur-sm"
+          >
+            <motion.ul
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              className="flex flex-col items-center justify-center h-full space-y-8"
+            >
+              {navItems.map((item, index) => (
+                <motion.li
+                  key={item.to}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                >
+                  <Scroll
+                    activeClass="active"
+                    to={item.to}
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                  >
+                    <NavLink
+                      to={`/${item.to}`}
+                      onClick={() => setNav(false)}
+                      className={({ isActive }) =>
+                        `text-2xl font-medium transition-all duration-300 ${
+                          isActive
+                            ? "text-white"
+                            : "text-gray-300 hover:text-white"
+                        }`
+                      }
+                    >
+                      {item.label}
+                    </NavLink>
+                  </Scroll>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
         )}
-      </div>
-
-      {nav && (
-        <ul className="sm:hidden text-center pt-6 z-10 flex flex-col bg-fixed h-screen scroll-smooth bg-dark-gray">
-          <li className="flex justify-center py-6 font-semibold items-center text-center cursor-pointer z-50 capitalize text-2xl">
-            <Scroll
-              activeClass="active"
-              to="home"
-              spy={true}
-              smooth={true}
-              offset={-70} // Adjust offset as needed
-              duration={500}
-              className={({ isActive }) =>
-                `block pl-3 cursor-pointer duration-200 ${
-                  isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
-              }
-            >
-              <NavLink
-                to="/home"
-                onClick={() => setNav(!nav)}
-                className={({ isActive }) =>
-                  `block pl-3 duration-200 ${
-                    isActive ? "text-white" : "text-custom-red"
-                  } border-custom-red `
-                }
-              >
-                Home
-              </NavLink>
-            </Scroll>
-          </li>
-          <li className="px-4 cursor-pointer capitalize py-6 font-semibold text-2xl">
-            <Scroll
-              activeClass="active"
-              to="about"
-              spy={true}
-              smooth={true}
-              offset={-70} // Adjust offset as needed
-              duration={500}
-              className={({ isActive }) =>
-                `block pl-3 cursor-pointer duration-200 ${
-                  isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
-              }
-            >
-              <NavLink
-                to="/about"
-                onClick={() => setNav(!nav)}
-                className={({ isActive }) =>
-                  `block pl-3 cursor-pointer duration-200 ${
-                    isActive ? "text-white" : "text-custom-red"
-                  } border-custom-red`
-                }
-              >
-                About
-              </NavLink>
-            </Scroll>
-          </li>
-          <li className="cursor-pointer capitalize py-6 font-semibold text-2xl">
-            <Scroll
-              activeClass="active"
-              to="skills"
-              spy={true}
-              smooth={true}
-              offset={-70} // Adjust offset as needed
-              duration={500}
-              className={({ isActive }) =>
-                `block pl-3 cursor-pointer duration-200 ${
-                  isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
-              }
-            >
-              <NavLink
-                to="/skills"
-                onClick={() => setNav(!nav)}
-                className={({ isActive }) =>
-                  `block pl-3 cursor-pointer duration-200 ${
-                    isActive ? "text-white" : "text-custom-red"
-                  } border-custom-red `
-                }
-              >
-                Skills
-              </NavLink>
-            </Scroll>
-          </li>
-          <li className="cursor-pointer capitalize py-6 font-semibold text-2xl">
-            <Scroll
-              activeClass="active"
-              to="experience"
-              spy={true}
-              smooth={true}
-              offset={-70} // Adjust offset as needed
-              duration={500}
-              className={({ isActive }) =>
-                `block pl-3 cursor-pointer duration-200 ${
-                  isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
-              }
-            >
-              <NavLink
-                to="/experience"
-                onClick={() => setNav(!nav)}
-                className={({ isActive }) =>
-                  `block pl-3 cursor-pointer duration-200 ${
-                    isActive ? "text-white" : "text-custom-red"
-                  } border-custom-red `
-                }
-              >
-                Experience
-              </NavLink>
-            </Scroll>
-          </li>
-          <li className="px-4 cursor-pointer capitalize py-6 font-semibold text-2xl">
-            <Scroll
-              activeClass="active"
-              to="projects"
-              spy={true}
-              smooth={true}
-              offset={-70} // Adjust offset as needed
-              duration={500}
-              className="block pl-3 duration-200 text-custom-red border-custom-red lg:hover:bg-transparent"
-            >
-              <NavLink
-                to="/projects"
-                onClick={() => setNav(!nav)}
-                className={({ isActive }) =>
-                  `block pl-3 cursor-pointer duration-200 ${
-                    isActive ? "text-white" : "text-custom-red"
-                  } border-custom-red `
-                }
-              >
-                Projects
-              </NavLink>
-            </Scroll>
-          </li>
-          <li className="px-4 cursor-pointer capitalize py-6 font-semibold text-2xl">
-            <Scroll
-              activeClass="active"
-              to="contact"
-              spy={true}
-              smooth={true}
-              offset={-70} // Adjust offset as needed
-              duration={500}
-              className={({ isActive }) =>
-                `block pl-3 cursor-pointer duration-200 ${
-                  isActive ? "text-white" : "text-custom-red"
-                } border-custom-red lg:hover:bg-transparent`
-              }
-            >
-              <NavLink
-                to="/contact"
-                onClick={() => setNav(!nav)}
-                className={({ isActive }) =>
-                  `block pl-3 cursor-pointer duration-200 ${
-                    isActive ? "text-white" : "text-custom-red"
-                  } border-custom-red `
-                }
-              >
-                Contact
-              </NavLink>
-            </Scroll>
-          </li>
-          {/* <li className="px-4 cursor-pointer capitalize py-6 font-semibold text-2xl">
-            <NavLink
-              to="/github"
-              onClick={() => setNav(!nav)}
-              className={({ isActive }) =>
-                `block pl-3 cursor-pointer duration-200 ${
-                  isActive ? "text-white" : "text-custom-red"
-                } border-custom-red `
-              }
-            >
-              Github
-            </NavLink>
-          </li> */}
-        </ul>
-      )}
-    </header>
+      </AnimatePresence>
+    </motion.header>
   );
 };
 

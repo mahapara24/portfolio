@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import React from "react";
+import { motion } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt, FaCode } from "react-icons/fa";
 import project1 from "../../assets/portfolio/project1.png";
 import project2 from "../../assets/portfolio/project2.png";
 import project3 from "../../assets/portfolio/project3.png";
@@ -10,54 +10,8 @@ import pedro from "../../assets/portfolio/pedro.png";
 import shia from "../../assets/portfolio/shiamatch.png";
 import apex from "../../assets/portfolio/apex.png";
 import xbyte from "../../assets/portfolio/xbyte.png";
-import { Link } from "react-router-dom";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
-  // useEffect(() => {
-  //   const projects = document.querySelectorAll(".project-item");
-
-  //   projects.forEach((project) => {
-  //     gsap.fromTo(
-  //       project.querySelector(".project-image"),
-  //       { x: -100, opacity: 0 },
-  //       {
-  //         x: 0,
-  //         opacity: 1,
-  //         duration: 1,
-  //         stagger: true,
-  //         ease: "power3.out",
-  //         scrollTrigger: {
-  //           trigger: project,
-  //           start: "top bottom",
-  //           end: "top center",
-  //           scrub: 1,
-  //           markers: false,
-  //         },
-  //       }
-  //     );
-
-  //     gsap.fromTo(
-  //       project.querySelector(".project-content"),
-  //       { x: 100, opacity: 0 },
-  //       {
-  //         x: 0,
-  //         opacity: 1,
-  //         duration: 1,
-  //         ease: "power3.out",
-  //         scrollTrigger: {
-  //           trigger: project,
-  //           start: "top bottom",
-  //           end: "top center",
-  //           scrub: 1,
-  //           markers: false,
-  //         },
-  //       }
-  //     );
-  //   });
-  // }, []);
-
   const portfolios = [
     {
       id: 4,
@@ -149,76 +103,127 @@ const Projects = () => {
   ];
 
   return (
-    <div
-      id="projects"
-      className="bg-primary-gray pt-20 scrollbar-hide scroll-smooth overscroll-x-none sm:pt-10"
-    >
-      <div className="max-w-screen-lg mx-auto flex flex-col justify-center w-full h-full px-4">
-        <div className="pb-4 pt-12 sm:pt-6">
-          <h2 className="text-2xl font-bold text-center sm:text-left text-custom-red sm:text-3xl">
-            Projects
+    <div id="projects" className="w-full bg-primary-gray relative overflow-hidden">
+      {/* Background gradient animation */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-gray via-dark-gray to-secondary-gray opacity-90">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-red/5 via-transparent to-transparent animate-pulse"></div>
+      </div>
+
+      <div className="w-full max-w-7xl mx-auto px-4 py-16 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-custom-red mb-4">
+            Featured Projects
           </h2>
-          <p className="py-2 pb-8 sm:pb-6 text-center sm:text-left text-base sm:text-lg font-normal text-white">
-            Check out some of my work here
+          <div className="w-24 h-1 bg-custom-red mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            Here are some of my recent works that showcase my skills and experience
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {portfolios.map((portfolio) => (
-            <div
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {portfolios.map((portfolio, index) => (
+            <motion.div
               key={portfolio.id}
-              className="project-item flex flex-col items-center rounded-lg p-4 sm:p-6 shadow-md bg-dark-gray/90"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -10 }}
+              className="group relative"
             >
-              <img
-                src={portfolio.src}
-                alt={portfolio.title}
-                className="project-image w-full rounded-md mb-4 sm:mb-0 duration-200 hover:scale-105"
-                style={{ background: "none" }}
-              />
-
-              <div className="flex-1 project-content p-4 sm:p-6">
-                <h3 className="text-custom-red text-lg sm:text-xl font-semibold mb-2">
-                  {portfolio.title}
-                </h3>
-                <p className="text-white mb-4 text-sm sm:text-base">
-                  {portfolio.description}
-                </p>
-                {portfolio.technologies && (
-                  <div className="mb-4 flex flex-wrap">
-                    {portfolio.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="bg-gray-800 text-custom-red px-3 py-1 rounded-md mr-2 mb-2"
+              <div className="bg-dark-gray/50 backdrop-blur-sm rounded-xl overflow-hidden border border-custom-red/20 hover:border-custom-red/40 transition-all duration-300">
+                {/* Project Image */}
+                <div className="relative overflow-hidden">
+                  <motion.img
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                    src={portfolio.src}
+                    alt={portfolio.title}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-gray/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-4 left-4 right-4 flex gap-2">
+                      <motion.a
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        href={portfolio.demoto}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 bg-custom-red text-black px-4 py-2 rounded-lg text-center font-medium hover:bg-custom-red/90 transition-colors duration-300"
                       >
+                        <FaExternalLinkAlt className="inline-block mr-2" />
+                        Live Demo
+                      </motion.a>
+                      <motion.a
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        href={portfolio.codeto}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 bg-dark-gray text-custom-red px-4 py-2 rounded-lg text-center font-medium hover:bg-custom-red/10 transition-colors duration-300"
+                      >
+                        <FaGithub className="inline-block mr-2" />
+                        View Code
+                      </motion.a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Project Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-custom-red transition-colors duration-300">
+                    {portfolio.title}
+                  </h3>
+                  <p className="text-gray-400 mb-4 text-sm">
+                    {portfolio.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {portfolio.technologies.map((tech, techIndex) => (
+                      <motion.span
+                        key={techIndex}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3, delay: techIndex * 0.1 }}
+                        viewport={{ once: true }}
+                        className="bg-custom-red/10 text-custom-red px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1"
+                      >
+                        <FaCode className="h-3 w-3" />
                         {tech}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
-                )}
-                <div className="flex flex-wrap gap-2">
-                  <button className="w-full sm:w-auto px-4 py-2 duration-200 hover:bg-custom-red hover:text-black rounded-md hover:scale-105 text-white text-sm">
-                    <Link
-                      to={portfolio.demoto}
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      Demo
-                    </Link>
-                  </button>
-                  <button className="w-full sm:w-auto px-4 py-2 duration-200 hover:bg-custom-red hover:text-black rounded-md hover:scale-105 text-white text-sm">
-                    <Link
-                      to={portfolio.codeto}
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      Code
-                    </Link>
-                  </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
+
+        {/* GitHub Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            href="https://github.com/mahapara24"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-custom-red text-black font-semibold rounded-lg shadow-glow-custom-red hover:bg-custom-red/90 transition-colors duration-300"
+          >
+            <FaGithub className="h-5 w-5" />
+            View More Projects on GitHub
+          </motion.a>
+        </motion.div>
       </div>
     </div>
   );

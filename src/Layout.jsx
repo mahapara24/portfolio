@@ -27,7 +27,7 @@ function Layout() {
         <Experience />
       </div>
       <Projects />
-      <div className="lg:pt-28">
+      <div className="">
         {" "}
         <Contact />
       </div>

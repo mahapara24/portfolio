@@ -156,7 +156,12 @@ const Header = () => {
                   spy={true}
                   smooth={true}
                   offset={-70}
-                  duration={500}
+                  duration={300}
+                  delay={0}
+                  isDynamic={true}
+                  spyThrottle={50}
+                  hashSpy={true}
+                  onClick={() => setNav(false)}
                 >
                   <NavLink
                     to={`/${item.to}`}
@@ -225,7 +230,12 @@ const Header = () => {
                     spy={true}
                     smooth={true}
                     offset={-70}
-                    duration={500}
+                    duration={300}
+                    delay={0}
+                    isDynamic={true}
+                    spyThrottle={50}
+                    hashSpy={true}
+                    onClick={() => setNav(false)}
                   >
                     <NavLink
                       to={`/${item.to}`}

@@ -407,7 +407,15 @@ function Home() {
             transition={{ delay: 1, duration: 1 }}
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block cursor-pointer"
             onClick={() => {
-              document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+              const aboutSection = document.getElementById('about');
+              const headerOffset = 70;
+              const elementPosition = aboutSection.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+              });
             }}
             title="Scroll to About"
           >
@@ -416,9 +424,10 @@ function Home() {
                 y: [0, 10, 0],
               }}
               transition={{
-                duration: 1.5,
+                duration: 2,
                 repeat: Infinity,
                 repeatType: "loop",
+                ease: "easeInOut"
               }}
               className="w-6 h-10 border-2 border-custom-red rounded-full flex justify-center group relative overflow-hidden"
             >
@@ -439,9 +448,10 @@ function Home() {
                   y: [0, 12, 0],
                 }}
                 transition={{
-                  duration: 1.5,
+                  duration: 2,
                   repeat: Infinity,
                   repeatType: "loop",
+                  ease: "easeInOut"
                 }}
                 className="w-1 h-2 bg-custom-red rounded-full mt-2 group-hover:bg-white transition-colors duration-300 relative z-10"
               />

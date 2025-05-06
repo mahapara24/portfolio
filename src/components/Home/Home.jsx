@@ -364,7 +364,6 @@ function Home() {
               {[
                 { icon: <FaGithub className="h-6 w-6" />, href: "https://github.com/yourusername", color: "hover:text-[#333]" },
                 { icon: <FaLinkedin className="h-6 w-6" />, href: "https://linkedin.com/in/yourusername", color: "hover:text-[#0077B5]" },
-                { icon: <FaTwitter className="h-6 w-6" />, href: "https://twitter.com/yourusername", color: "hover:text-[#1DA1F2]" }
               ].map((social, index) => (
                 <motion.a
                   key={index}

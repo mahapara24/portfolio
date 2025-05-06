@@ -158,7 +158,7 @@ const Projects = () => {
               onClick={() => setActiveFilter(category)}
               className={`px-6 py-2 rounded-full font-medium transition-all duration-300 flex items-center gap-2
                 ${activeFilter === category 
-                  ? 'bg-custom-red text-white shadow-glow-custom-red' 
+                  ? 'bg-custom-red text-black shadow-glow-custom-red' 
                   : 'bg-dark-gray/50 text-gray-300 hover:bg-custom-red/20'}`}
             >
               <FaFilter className="h-4 w-4" />
@@ -281,7 +281,7 @@ const Projects = () => {
             href="https://github.com/mahapara24"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-custom-red text-white font-semibold rounded-lg shadow-glow-custom-red hover:bg-custom-red/90 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-custom-red text-black font-semibold rounded-lg shadow-glow-custom-red hover:bg-custom-red/90 transition-all duration-300"
           >
             <FaGithub className="h-5 w-5" />
             View More Projects on GitHub

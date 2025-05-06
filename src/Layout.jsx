@@ -13,7 +13,7 @@ function Layout() {
   return (
     <div className="overflow-x-hidden">
       <Hearder />
-      <div className="py-2">
+      <div className="py-0">
         {" "}
         <Home />
       </div>

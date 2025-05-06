@@ -7,11 +7,26 @@ import { motion, AnimatePresence } from "framer-motion";
 const Header = () => {
   const [nav, setNav] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 50;
       setScrolled(isScrolled);
+
+      // Update active section based on scroll position
+      const sections = ["home", "about", "skills", "experience", "projects", "contact"];
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -33,24 +48,92 @@ const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-dark-gray/95 backdrop-blur-sm shadow-lg" : "bg-transparent"
+        scrolled 
+          ? "bg-dark-gray/95 backdrop-blur-sm shadow-lg" 
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+      <div className="w-full px-4">
+        <div className="flex justify-between items-center h-14">
+          {/* Refined Professional Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="flex items-center"
           >
-            <h1 className="text-2xl font-bold text-custom-red tracking-wider">
-              <span className="bg-gradient-to-r from-custom-red to-blue-500 bg-clip-text text-transparent">
-                Mahapara
-              </span>
-              <span className="text-white"> Nizamani</span>
-            </h1>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="relative group cursor-pointer"
+            >
+              <motion.h1 
+                className="text-xl font-bold tracking-wider relative"
+              >
+                {/* First Name with Subtle Effects */}
+                <motion.span 
+                  className="relative inline-block"
+                  animate={{
+                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  style={{
+                    background: 'linear-gradient(90deg, #ff4d4d, #40D1FF, #ff4d4d)',
+                    backgroundSize: '200% 100%',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  Mahapara
+                </motion.span>
+
+                {/* Last Name with Minimal Animation */}
+                <motion.span 
+                  className="text-white ml-1"
+                >
+                  Nizamani
+                </motion.span>
+
+                {/* Subtle Hover Effect */}
+                <motion.div
+                  className="absolute -inset-1 bg-gradient-to-r from-custom-red via-blue-500 to-custom-red rounded-lg opacity-0 group-hover:opacity-10 blur transition-opacity duration-300"
+                  animate={{
+                    scale: [1, 1.02, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+              </motion.h1>
+
+              {/* Minimal Underline */}
+              <motion.div
+                className="absolute -bottom-1 left-0 right-0 h-0.5"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <motion.div
+                  className="h-full w-full bg-gradient-to-r from-custom-red via-blue-500 to-custom-red"
+                  animate={{
+                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  style={{
+                    backgroundSize: '200% 100%'
+                  }}
+                />
+              </motion.div>
+            </motion.div>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -78,14 +161,23 @@ const Header = () => {
                   <NavLink
                     to={`/${item.to}`}
                     className={({ isActive }) =>
-                      `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                        isActive
-                          ? "text-white bg-custom-red/10"
-                          : "text-gray-300 hover:text-white hover:bg-custom-red/5"
+                      `px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-300 relative group ${
+                        activeSection === item.to
+                          ? "text-white"
+                          : "text-gray-300 hover:text-white"
                       }`
                     }
                   >
                     {item.label}
+                    {activeSection === item.to && (
+                      <motion.div
+                        layoutId="activeSection"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-custom-red"
+                        initial={false}
+                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                      />
+                    )}
+                    <span className="absolute inset-0 bg-custom-red/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </NavLink>
                 </Scroll>
               </motion.div>
@@ -97,9 +189,9 @@ const Header = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setNav(!nav)}
-            className="md:hidden text-custom-red p-2"
+            className="md:hidden text-custom-red p-1.5"
           >
-            {nav ? <FaTimes size={24} /> : <FaBars size={24} />}
+            {nav ? <FaTimes size={20} /> : <FaBars size={20} />}
           </motion.button>
         </div>
       </div>
@@ -118,7 +210,7 @@ const Header = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.1 }}
-              className="flex flex-col items-center justify-center h-full space-y-8"
+              className="flex flex-col items-center justify-center h-full space-y-6"
             >
               {navItems.map((item, index) => (
                 <motion.li
@@ -139,14 +231,22 @@ const Header = () => {
                       to={`/${item.to}`}
                       onClick={() => setNav(false)}
                       className={({ isActive }) =>
-                        `text-2xl font-medium transition-all duration-300 ${
-                          isActive
+                        `text-xl font-medium transition-all duration-300 relative group ${
+                          activeSection === item.to
                             ? "text-white"
                             : "text-gray-300 hover:text-white"
                         }`
                       }
                     >
                       {item.label}
+                      {activeSection === item.to && (
+                        <motion.div
+                          layoutId="activeSectionMobile"
+                          className="absolute -bottom-2 left-0 right-0 h-0.5 bg-custom-red"
+                          initial={false}
+                          transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                        />
+                      )}
                     </NavLink>
                   </Scroll>
                 </motion.li>

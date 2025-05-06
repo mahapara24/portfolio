@@ -1,13 +1,63 @@
-import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link as Scroll } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Header = () => {
   const [nav, setNav] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const headerRef = useRef(null);
+  const logoRef = useRef(null);
+  const navRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Update active section based on current path
+    const path = location.pathname.replace('/', '');
+    setActiveSection(path || 'home');
+  }, [location]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header background animation
+      gsap.to(headerRef.current, {
+        scrollTrigger: {
+          start: "top -50",
+          end: "top -50",
+          toggleActions: "play none none reverse",
+        },
+        backgroundColor: "rgba(17, 24, 39, 0.95)",
+        backdropFilter: "blur(8px)",
+        boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+        duration: 0.3,
+      });
+
+      // Logo animation
+      gsap.from(logoRef.current, {
+        opacity: 0,
+        x: -50,
+        duration: 1,
+        ease: "power2.out",
+      });
+
+      // Navigation items animation
+      gsap.from(".nav-item", {
+        opacity: 0,
+        y: -20,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "power2.out",
+      });
+    }, headerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +83,11 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (section) => {
+    setActiveSection(section);
+    setNav(false);
+  };
+
   const navItems = [
     { to: "home", label: "Home" },
     { to: "about", label: "About" },
@@ -43,10 +98,8 @@ const Header = () => {
   ];
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+    <header
+      ref={headerRef}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled 
           ? "bg-dark-gray/95 backdrop-blur-sm shadow-lg" 
@@ -55,139 +108,53 @@ const Header = () => {
     >
       <div className="w-full px-4">
         <div className="flex justify-between items-center h-14">
-          {/* Refined Professional Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center"
-          >
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="relative group cursor-pointer"
-            >
-              <motion.h1 
-                className="text-xl font-bold tracking-wider relative"
-              >
-                {/* First Name with Subtle Effects */}
-                <motion.span 
-                  className="relative inline-block"
-                  animate={{
-                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                  style={{
-                    background: 'linear-gradient(90deg, #ff4d4d, #40D1FF, #ff4d4d)',
-                    backgroundSize: '200% 100%',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                  }}
+          {/* Logo */}
+          <div ref={logoRef} className="flex items-center">
+            <NavLink to="/" className="relative group cursor-pointer">
+              <h1 className="text-xl font-bold tracking-wider relative">
+                <span 
+                  className="relative inline-block bg-gradient-to-r from-custom-red via-blue-500 to-custom-red bg-clip-text text-transparent"
                 >
                   Mahapara
-                </motion.span>
-
-                {/* Last Name with Minimal Animation */}
-                <motion.span 
-                  className="text-white ml-1"
-                >
+                </span>
+                <span className="text-white ml-1">
                   Nizamani
-                </motion.span>
-
-                {/* Subtle Hover Effect */}
-                <motion.div
-                  className="absolute -inset-1 bg-gradient-to-r from-custom-red via-blue-500 to-custom-red rounded-lg opacity-0 group-hover:opacity-10 blur transition-opacity duration-300"
-                  animate={{
-                    scale: [1, 1.02, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-              </motion.h1>
-
-              {/* Minimal Underline */}
-              <motion.div
-                className="absolute -bottom-1 left-0 right-0 h-0.5"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <motion.div
-                  className="h-full w-full bg-gradient-to-r from-custom-red via-blue-500 to-custom-red"
-                  animate={{
-                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                  style={{
-                    backgroundSize: '200% 100%'
-                  }}
-                />
-              </motion.div>
-            </motion.div>
-          </motion.div>
+                </span>
+              </h1>
+              <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-custom-red via-blue-500 to-custom-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+            </NavLink>
+          </div>
 
           {/* Desktop Navigation */}
-          <motion.nav
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="hidden md:flex items-center space-x-1"
-          >
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.to}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
+          <nav ref={navRef} className="hidden md:flex items-center space-x-1">
+            {navItems.map((item) => (
+              <div key={item.to} className="nav-item">
                 <Scroll
                   activeClass="active"
                   to={item.to}
                   spy={true}
                   smooth={true}
                   offset={-70}
-                  duration={300}
-                  delay={0}
-                  isDynamic={true}
-                  spyThrottle={50}
-                  hashSpy={true}
-                  onClick={() => setNav(false)}
+                  duration={500}
+                  onClick={() => handleNavClick(item.to)}
                 >
-                  <NavLink
-                    to={`/${item.to}`}
-                    className={({ isActive }) =>
-                      `px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-300 relative group ${
-                        activeSection === item.to
-                          ? "text-white"
-                          : "text-gray-300 hover:text-white"
-                      }`
-                    }
+                  <button
+                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-300 relative group ${
+                      activeSection === item.to
+                        ? "text-white"
+                        : "text-gray-300 hover:text-white"
+                    }`}
                   >
                     {item.label}
                     {activeSection === item.to && (
-                      <motion.div
-                        layoutId="activeSection"
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-custom-red"
-                        initial={false}
-                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                      />
+                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-custom-red" />
                     )}
                     <span className="absolute inset-0 bg-custom-red/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </NavLink>
+                  </button>
                 </Scroll>
-              </motion.div>
+              </div>
             ))}
-          </motion.nav>
+          </nav>
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -217,12 +184,12 @@ const Header = () => {
               transition={{ duration: 0.3, delay: 0.1 }}
               className="flex flex-col items-center justify-center h-full space-y-6"
             >
-              {navItems.map((item, index) => (
+              {navItems.map((item) => (
                 <motion.li
                   key={item.to}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <Scroll
                     activeClass="active"
@@ -230,34 +197,21 @@ const Header = () => {
                     spy={true}
                     smooth={true}
                     offset={-70}
-                    duration={300}
-                    delay={0}
-                    isDynamic={true}
-                    spyThrottle={50}
-                    hashSpy={true}
-                    onClick={() => setNav(false)}
+                    duration={500}
+                    onClick={() => handleNavClick(item.to)}
                   >
-                    <NavLink
-                      to={`/${item.to}`}
-                      onClick={() => setNav(false)}
-                      className={({ isActive }) =>
-                        `text-xl font-medium transition-all duration-300 relative group ${
-                          activeSection === item.to
-                            ? "text-white"
-                            : "text-gray-300 hover:text-white"
-                        }`
-                      }
+                    <button
+                      className={`text-xl font-medium transition-all duration-300 relative group ${
+                        activeSection === item.to
+                          ? "text-white"
+                          : "text-gray-300 hover:text-white"
+                      }`}
                     >
                       {item.label}
                       {activeSection === item.to && (
-                        <motion.div
-                          layoutId="activeSectionMobile"
-                          className="absolute -bottom-2 left-0 right-0 h-0.5 bg-custom-red"
-                          initial={false}
-                          transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                        />
+                        <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-custom-red" />
                       )}
-                    </NavLink>
+                    </button>
                   </Scroll>
                 </motion.li>
               ))}
@@ -265,7 +219,7 @@ const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 };
 

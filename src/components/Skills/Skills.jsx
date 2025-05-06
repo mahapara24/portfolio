@@ -15,25 +15,39 @@ import expressjs from "../../assets/expressjs.png";
 
 const Skills = () => {
   const techs = [
-    { id: 1, src: html, title: "HTML", style: "shadow-orange-500" },
-    { id: 2, src: css, title: "CSS", style: "shadow-blue-500" },
-    { id: 3, src: tailwind, title: "Tailwind", style: "shadow-cyan-500" },
-    { id: 4, src: js, title: "JavaScript", style: "shadow-yellow-500" },
-    { id: 5, src: python, title: "Python", style: "shadow-green-500" },
-    { id: 6, src: react, title: "ReactJS", style: "shadow-blue-500" },
-    { id: 7, src: ts, title: "TypeScript", style: "shadow-blue-500" },
-    { id: 8, src: node, title: "NodeJS", style: "shadow-green-500" },
-    { id: 9, src: expressjs, title: "ExpressJs", style: "shadow-gray-500" },
-    { id: 10, src: mongoDb, title: "MongoDB", style: "shadow-green-500" },
-    { id: 11, src: Nextjs, title: "NextJS", style: "shadow-white" },
-    { id: 12, src: git, title: "Git", style: "shadow-orange-500" },
+    { id: 1, src: html, title: "HTML", style: "shadow-orange-500", category: "Frontend" },
+    { id: 2, src: css, title: "CSS", style: "shadow-blue-500", category: "Frontend" },
+    { id: 3, src: tailwind, title: "Tailwind", style: "shadow-cyan-500", category: "Frontend" },
+    { id: 4, src: js, title: "JavaScript", style: "shadow-yellow-500", category: "Frontend" },
+    { id: 5, src: python, title: "Python", style: "shadow-green-500", category: "Backend" },
+    { id: 6, src: react, title: "ReactJS", style: "shadow-blue-500", category: "Frontend" },
+    { id: 7, src: ts, title: "TypeScript", style: "shadow-blue-500", category: "Frontend" },
+    { id: 8, src: node, title: "NodeJS", style: "shadow-green-500", category: "Backend" },
+    { id: 9, src: expressjs, title: "ExpressJs", style: "shadow-gray-500", category: "Backend" },
+    { id: 10, src: mongoDb, title: "MongoDB", style: "shadow-green-500", category: "Backend" },
+    { id: 11, src: Nextjs, title: "NextJS", style: "shadow-white", category: "Frontend" },
+    { id: 12, src: git, title: "Git", style: "shadow-orange-500", category: "Tools" },
   ];
 
   return (
     <div id="skills" className="min-h-screen py-20 px-4 bg-primary-gray relative overflow-hidden">
-      {/* Background gradient animation */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-gray via-dark-gray to-secondary-gray opacity-90">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-red/5 via-transparent to-transparent animate-pulse"></div>
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-950 to-black">
+        <motion.div
+          className="absolute inset-0"
+          animate={{
+            background: [
+              'radial-gradient(circle at 20% 20%, rgba(255,77,77,0.1) 0%, transparent 50%)',
+              'radial-gradient(circle at 80% 80%, rgba(64,209,255,0.1) 0%, transparent 50%)',
+              'radial-gradient(circle at 20% 20%, rgba(255,77,77,0.1) 0%, transparent 50%)'
+            ]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -43,87 +57,92 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-custom-red mb-4">
+          <motion.h2 
+            className="text-4xl md:text-5xl font-bold text-custom-red mb-4 relative inline-block"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             Technical Skills
-          </h2>
-          <div className="w-24 h-1 bg-custom-red mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <motion.div
+              className="absolute -bottom-2 left-0 right-0 h-1 bg-custom-red"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            />
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-gray-300 max-w-2xl mx-auto mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             Here are the technologies and tools I work with to bring ideas to life
-          </p>
+          </motion.p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
-        >
-          {techs.map(({ id, src, title, style }, index) => (
+        {/* Skills Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {techs.map((tech, index) => (
             <motion.div
-              key={id}
+              key={tech.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ 
                 scale: 1.05,
-                transition: { duration: 0.2 }
+                rotateY: 10,
+                rotateX: -5,
               }}
               className="group relative"
             >
-              <div className="bg-dark-gray/50 backdrop-blur-sm p-6 rounded-xl border border-custom-red/20 hover:border-custom-red/40 transition-all duration-300 h-full flex flex-col items-center justify-center">
+              {/* Card Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-custom-red/20 to-blue-500/20 rounded-lg blur-xl group-hover:blur-2xl transition-all duration-300" />
+              
+              {/* Card Content */}
+              <div className="relative bg-dark-gray/80 backdrop-blur-sm p-6 rounded-lg border border-custom-red/20 hover:border-custom-red/40 transition-all duration-300 h-full">
+                {/* Skill Icon */}
                 <motion.div
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.5 }}
-                  className="mb-4"
+                  className="flex justify-center mb-4"
                 >
                   <img 
                     className="h-12 w-12 object-contain filter group-hover:brightness-110 transition-all duration-300" 
-                    src={src} 
-                    alt={title} 
+                    src={tech.src} 
+                    alt={tech.title} 
                   />
                 </motion.div>
-                <h3 className="text-lg font-semibold text-white group-hover:text-custom-red transition-colors duration-300">
-                  {title}
+
+                {/* Skill Title */}
+                <h3 className="text-lg font-semibold text-white text-center group-hover:text-custom-red transition-colors duration-300">
+                  {tech.title}
                 </h3>
-                <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300 ${style}`}></div>
+
+                {/* Category Badge */}
+                <div className="absolute top-2 right-2">
+                  <span className="text-xs px-2 py-1 rounded-full bg-custom-red/10 text-custom-red">
+                    {tech.category}
+                  </span>
+                </div>
+
+                {/* Hover Effect Overlay */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-custom-red/5 to-transparent opacity-0 group-hover:opacity-100"
+                  animate={{
+                    x: ['-100%', '100%'],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: index * 0.5
+                  }}
+                />
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Skill level indicators */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <h3 className="text-2xl font-semibold text-white mb-8">Proficiency Levels</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {['Frontend Development', 'Backend Development', 'Database Management'].map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6 + index * 0.1 }}
-                className="bg-dark-gray/50 backdrop-blur-sm p-4 rounded-lg"
-              >
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-gray-300">{skill}</span>
-                  <span className="text-custom-red">90%</span>
-                </div>
-                <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: "90%" }}
-                    transition={{ duration: 1, delay: 0.8 + index * 0.1 }}
-                    className="h-full bg-custom-red rounded-full"
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div> */}
+        </div>
       </div>
     </div>
   );

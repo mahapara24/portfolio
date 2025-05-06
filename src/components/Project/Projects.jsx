@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt, FaCode } from "react-icons/fa";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt, FaCode, FaFilter } from "react-icons/fa";
 import project1 from "../../assets/portfolio/project1.png";
 import project2 from "../../assets/portfolio/project2.png";
 import project3 from "../../assets/portfolio/project3.png";
@@ -12,6 +12,11 @@ import apex from "../../assets/portfolio/apex.png";
 import xbyte from "../../assets/portfolio/xbyte.png";
 
 const Projects = () => {
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [hoveredProject, setHoveredProject] = useState(null);
+
+  const categories = ["All", "Full Stack", "Frontend", "Backend"];
+
   const portfolios = [
     {
       id: 4,
@@ -22,6 +27,7 @@ const Projects = () => {
       technologies: ["Reactjs", "Tailwind css", "Firebase"],
       demoto: "https://expense-tracker-reactjs-eta.vercel.app/",
       codeto: "https://github.com/mahapara24/expense-tracker-reactjs",
+      category: "Full Stack"
     },
     {
       id: 1,
@@ -39,6 +45,7 @@ const Projects = () => {
       ],
       demoto: "https://github.com/mahapara24/github-log-mern",
       codeto: "https://github.com/mahapara24/github-log-mern",
+      category: "Full Stack"
     },
     {
       id: 2,
@@ -49,8 +56,8 @@ const Projects = () => {
       technologies: ["Nextjs", "Tailwind css", "Aceternity UI"],
       demoto: "https://music-school-nextjs.vercel.app/",
       codeto: "https://github.com/mahapara24/music-school-nextjs",
+      category: "Full Stack"
     },
-
     {
       id: 5,
       src: pedro,
@@ -61,6 +68,7 @@ const Projects = () => {
       demoto: "https://travel-app-modern-ux.vercel.app/",
       codeto:
         "https://github.com/mahapara24/travel-app-modern-ux/blob/main/src/app/layout.tsx",
+      category: "Frontend"
     },
     {
       id: 6,
@@ -70,6 +78,7 @@ const Projects = () => {
       technologies: ["React js", "Tailwind css"],
       demoto: "https://shia-match-frontend.vercel.app/",
       codeto: "https://github.com/mahapara24/ShiaMatchFrontend",
+      category: "Frontend"
     },
     {
       id: 7,
@@ -81,6 +90,7 @@ const Projects = () => {
         "https://apex-loads-nextjs-tailwindcss-mahapara-6gvnf8k21.vercel.app/",
       codeto:
         "https://github.com/mahapara24/apexLoads-nextjs-tailwindcss-mahapara",
+      category: "Frontend"
     },
     {
       id: 8,
@@ -90,6 +100,7 @@ const Projects = () => {
       technologies: ["React js", "Tailwind css"],
       demoto: "https://xbyte-frontend-reactjs.vercel.app/",
       codeto: "https://github.com/mahapara24/xbyte-frontend-reactjs",
+      category: "Frontend"
     },
     {
       id: 3,
@@ -99,14 +110,20 @@ const Projects = () => {
       technologies: ["React js", "Tailwind css"],
       demoto: "https://password-generator-reactapp.vercel.app/",
       codeto: "https://github.com/mahapara24/password-generator-reactapp",
+      category: "Backend"
     },
   ];
 
+  const filteredProjects = activeFilter === "All" 
+    ? portfolios 
+    : portfolios.filter(project => project.category === activeFilter);
+
   return (
-    <div id="projects" className="w-full bg-primary-gray relative overflow-hidden">
-      {/* Background gradient animation */}
+    <div id="projects" className="w-full bg-primary-gray relative overflow-hidden min-h-screen">
+      {/* Enhanced background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-gray via-dark-gray to-secondary-gray opacity-90">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-red/5 via-transparent to-transparent animate-pulse"></div>
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-4 py-16 relative z-10">
@@ -126,85 +143,132 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolios.map((portfolio, index) => (
-            <motion.div
-              key={portfolio.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="group relative"
+        {/* Category Filter */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex justify-center gap-4 mb-12 flex-wrap"
+        >
+          {categories.map((category) => (
+            <motion.button
+              key={category}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setActiveFilter(category)}
+              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 flex items-center gap-2
+                ${activeFilter === category 
+                  ? 'bg-custom-red text-black shadow-glow-custom-red' 
+                  : 'bg-dark-gray/50 text-gray-300 hover:bg-custom-red/20'}`}
             >
-              <div className="bg-dark-gray/50 backdrop-blur-sm rounded-xl overflow-hidden border border-custom-red/20 hover:border-custom-red/40 transition-all duration-300">
-                {/* Project Image */}
-                <div className="relative overflow-hidden">
-                  <motion.img
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                    src={portfolio.src}
-                    alt={portfolio.title}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-gray/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-                      <motion.a
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        href={portfolio.demoto}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 bg-custom-red text-black px-4 py-2 rounded-lg text-center font-medium hover:bg-custom-red/90 transition-colors duration-300"
-                      >
-                        <FaExternalLinkAlt className="inline-block mr-2" />
-                        Live Demo
-                      </motion.a>
-                      <motion.a
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        href={portfolio.codeto}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 bg-dark-gray text-custom-red px-4 py-2 rounded-lg text-center font-medium hover:bg-custom-red/10 transition-colors duration-300"
-                      >
-                        <FaGithub className="inline-block mr-2" />
-                        View Code
-                      </motion.a>
+              <FaFilter className="h-4 w-4" />
+              {category}
+            </motion.button>
+          ))}
+        </motion.div>
+
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={activeFilter}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {filteredProjects.map((portfolio, index) => (
+              <motion.div
+                key={portfolio.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+                onHoverStart={() => setHoveredProject(portfolio.id)}
+                onHoverEnd={() => setHoveredProject(null)}
+                className="group relative"
+              >
+                <div className="bg-dark-gray/50 backdrop-blur-sm rounded-xl overflow-hidden border border-custom-red/20 hover:border-custom-red/40 transition-all duration-300">
+                  {/* Project Image with Enhanced Hover Effect */}
+                  <div className="relative overflow-hidden">
+                    <motion.img
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                      src={portfolio.src}
+                      alt={portfolio.title}
+                      className="w-full h-48 object-cover"
+                    />
+                    <motion.div 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: hoveredProject === portfolio.id ? 1 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute inset-0 bg-gradient-to-t from-dark-gray/90 to-transparent"
+                    >
+                      <div className="absolute bottom-4 left-4 right-4 flex gap-2">
+                        <motion.a
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          href={portfolio.demoto}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 bg-custom-red text-black px-4 py-2 rounded-lg text-center font-medium hover:bg-custom-red/90 transition-colors duration-300"
+                        >
+                          <FaExternalLinkAlt className="inline-block mr-2" />
+                          Live Demo
+                        </motion.a>
+                        <motion.a
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          href={portfolio.codeto}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 bg-dark-gray text-custom-red px-4 py-2 rounded-lg text-center font-medium hover:bg-custom-red/10 transition-colors duration-300"
+                        >
+                          <FaGithub className="inline-block mr-2" />
+                          View Code
+                        </motion.a>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* Project Content with Enhanced Styling */}
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold text-white group-hover:text-custom-red transition-colors duration-300">
+                        {portfolio.title}
+                      </h3>
+                      <span className="text-xs px-2 py-1 rounded-full bg-custom-red/10 text-custom-red">
+                        {portfolio.category}
+                      </span>
+                    </div>
+                    <p className="text-gray-400 mb-4 text-sm">
+                      {portfolio.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {portfolio.technologies.map((tech, techIndex) => (
+                        <motion.span
+                          key={techIndex}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: techIndex * 0.1 }}
+                          viewport={{ once: true }}
+                          whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 0, 0, 0.2)" }}
+                          className="bg-custom-red/10 text-custom-red px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1 transition-colors duration-300"
+                        >
+                          <FaCode className="h-3 w-3" />
+                          {tech}
+                        </motion.span>
+                      ))}
                     </div>
                   </div>
                 </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
-                {/* Project Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-custom-red transition-colors duration-300">
-                    {portfolio.title}
-                  </h3>
-                  <p className="text-gray-400 mb-4 text-sm">
-                    {portfolio.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {portfolio.technologies.map((tech, techIndex) => (
-                      <motion.span
-                        key={techIndex}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: techIndex * 0.1 }}
-                        viewport={{ once: true }}
-                        className="bg-custom-red/10 text-custom-red px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1"
-                      >
-                        <FaCode className="h-3 w-3" />
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* GitHub Stats */}
+        {/* Enhanced GitHub Stats Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -213,12 +277,12 @@ const Projects = () => {
           className="mt-16 text-center"
         >
           <motion.a
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(255, 0, 0, 0.5)" }}
             whileTap={{ scale: 0.95 }}
             href="https://github.com/mahapara24"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-custom-red text-black font-semibold rounded-lg shadow-glow-custom-red hover:bg-custom-red/90 transition-colors duration-300"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-custom-red text-black font-semibold rounded-lg shadow-glow-custom-red hover:bg-custom-red/90 transition-all duration-300"
           >
             <FaGithub className="h-5 w-5" />
             View More Projects on GitHub

@@ -477,8 +477,8 @@ function Home() {
             {/* Enhanced Social Links */}
             <div className="flex gap-4">
               {[
-                { icon: <FaGithub className="h-6 w-6" />, href: "https://github.com/yourusername", color: "hover:text-[#333]" },
-                { icon: <FaLinkedin className="h-6 w-6" />, href: "https://linkedin.com/in/yourusername", color: "hover:text-[#0077B5]" },
+                { icon: <FaGithub className="h-6 w-6" />, href: "https://github.com/mahapara24", color: "hover:text-[#333]" },
+                { icon: <FaLinkedin className="h-6 w-6" />, href: "https://www.linkedin.com/in/mahapara-nizamani-1ba88b292/", color: "hover:text-[#0077B5]" },
               ].map((social, index) => (
                 <motion.a
                   key={index}

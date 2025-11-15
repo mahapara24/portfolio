@@ -16,6 +16,7 @@ const Header = () => {
   const logoRef = useRef(null);
   const navRef = useRef(null);
   const location = useLocation();
+  const clickedSectionRef = useRef(null);
 
   useEffect(() => {
     // Update active section based on current path
@@ -63,29 +64,24 @@ const Header = () => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 50;
       setScrolled(isScrolled);
-
-      // Update active section based on scroll position
-      const sections = ["home", "about", "skills", "experience", "projects", "contact"];
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      if (currentSection) {
-        setActiveSection(currentSection);
-      }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const handleNavClick = (section) => {
+    // Set active section immediately for instant feedback
     setActiveSection(section);
+    clickedSectionRef.current = section;
     setNav(false);
+    
+    // Clear the clicked ref after scroll animation completes
+    setTimeout(() => {
+      clickedSectionRef.current = null;
+    }, 600);
   };
 
   const navItems = [
@@ -93,6 +89,7 @@ const Header = () => {
     { to: "about", label: "About" },
     { to: "skills", label: "Skills" },
     { to: "experience", label: "Experience" },
+    { to: "certifications", label: "Certifications" },
     { to: "projects", label: "Projects" },
     { to: "contact", label: "Contact" },
   ];
@@ -137,6 +134,12 @@ const Header = () => {
                   offset={-70}
                   duration={500}
                   onClick={() => handleNavClick(item.to)}
+                  onSetActive={(to) => {
+                    // Only update if we clicked this section, or if no click happened (normal scroll)
+                    if (!clickedSectionRef.current || clickedSectionRef.current === to) {
+                      setActiveSection(to);
+                    }
+                  }}
                 >
                   <button
                     className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-300 relative group ${
@@ -199,6 +202,10 @@ const Header = () => {
                     offset={-70}
                     duration={500}
                     onClick={() => handleNavClick(item.to)}
+                    onSetActive={(to) => {
+                      // Update active section immediately when section becomes active
+                      setActiveSection(to);
+                    }}
                   >
                     <button
                       className={`text-xl font-medium transition-all duration-300 relative group ${

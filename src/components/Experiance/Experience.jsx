@@ -37,7 +37,7 @@ const experiences = [
     color: "from-green-500/20 to-emerald-500/20"
   },
   {
-    date: "Dec 2023 - Feb 2024",
+    date: "Dec 2023 - Jun 2024",
     role: "Frontend Developer",
     company: "Recepio Limited",
     description:

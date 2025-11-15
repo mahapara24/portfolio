@@ -8,6 +8,7 @@ import Skills from "./components/Skills/Skills";
 import Projects from "./components/Project/Projects";
 import Contact from "./components/Contact/Contact";
 import Experience from "./components/Experiance/Experience";
+import Certification from "./components/Certification/Certification";
 
 function Layout() {
   return (
@@ -25,6 +26,9 @@ function Layout() {
 
       <div className="">
         <Experience />
+      </div>
+      <div className="py-0">
+        <Certification />
       </div>
       <Projects />
       <div className="">

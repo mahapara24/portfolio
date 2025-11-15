@@ -8,8 +8,8 @@ const Certification = () => {
 
   const certificates = [
     {
-        id: 1,
-      title: "Certificate of Internship Completion at Recapeo",
+      id: 1,
+      title: "Certificate of Internship Completion at Recepio",
       description: "Advanced certification in modern software engineering practices",
       file: "/recepioCertificate.pdf",
       category: "Engineering",
@@ -18,9 +18,8 @@ const Certification = () => {
       type: "pdf"
     },
     {
-    
       id: 2,
-      title: "Movmi Certificate",
+      title: "Certificate of Internship Completion at Movmi",
       description: "Certificate of Internship Completion at Movmi",
       file: "/movmiCertificate.pdf",
       category: "Development",
